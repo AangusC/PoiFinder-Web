@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Font Awesome -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -19,23 +19,28 @@
       <div class="card-block">
         <div class="container">
           <h4 class="card-title">Login Usuario POI</h4>
+          <br>
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-sm-12">
-              <p class="card-text">Username</p>
+          <div class="col-sm-6">
+            <div class="md-form form-group">
+                 <i class="fa fa-rebel prefix animated pulse infinite"></i>
+              <input type="email" id="form91" class="form-control validate">
+              <label for="form91" data-error="wrong" data-success="right">Type your username</label>
             </div>
-            <div class="col-sm-6">
-              <input type="number" id="aniosDesde" placeholder="Username" size="5" max="5">
-            </div>            
+           </div>           
           </div>
         </div>
         <br>
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
-              <p class="card-text">Contrase&ntilde;a</p>
-              <input type="text" id="nombreComienzaCon" placeholder="Contrase&ntilde;a" max="25">
+              <div class="md-form form-group">
+                <i class="fa fa-lock prefix"></i>
+                <input type="password" id="form92" class="form-control validate">
+                <label for="form92" data-error="wrong" data-success="right">Type your password</label>
+              </div>
             </div>
           </div>
         </div>
@@ -43,8 +48,8 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <button id="Aceptar" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i>  Aceptar</button>
-              <button id="Cancelar" class="btn btn-info" autofocus="true"><i class="fa fa-search" aria-hidden="true"></i>  Cancelar</button>
+              <button id="Aceptar" class="btn btn-primary"><i class="fa  fa-check " aria-hidden="true"></i>  Aceptar</button>
+              <button id="Cancelar" class="btn btn-info" autofocus="true"><i class="fa fa-close" aria-hidden="true"></i>  Cancelar</button>
             </div>
           </div>
         </div>
