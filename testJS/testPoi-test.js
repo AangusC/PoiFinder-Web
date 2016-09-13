@@ -23,14 +23,15 @@ describe("Test 1", function() {
 		expect(poi.estaCercaDe(coordenadaBanco2)).toEqual(true);
 	});
 	it("test distancia falsa", function() {
-		console.log(poi.coordenada.distance(coordenadaBanco1));
-		console.log( poi.distanciaMinCercania);
+		//console.log(poi.coordenada.distance(coordenadaBanco1));
+		//console.log( poi.distanciaMinCercania);
 		expect(poi.estaCercaDe(coordenadaBanco1)).toEqual(false);
 
 	});
 	it("test estaAbierto", function() {
 		expect(poi.estaAbierto(13)).toEqual(true);
-
 	});
-
+		it("test estaCerrado", function() {
+		expect(poi.estaAbierto(21)).toEqual(false);
+	});
 });
