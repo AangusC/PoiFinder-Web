@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <!-- Font Awesome -->
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
@@ -27,7 +27,7 @@
 						<img src="images/bus.png" class="animated bounce" height="60px;" width="60px;">
 					</div>
 					<div class="col-sm-6">
-						<input type="text" placeholder="Linea 78" max="25">
+						<h4 class="card-title"><b>Linea 78</b> </h4>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3">
-						<p class="card-text">Cantidad de Paradas: </p>
+						<p class="card-text"><u>Cantidad de Paradas:</u> </p>
 					</div>
 					<div class="col-sm-3">
 						<p class="card-text">4</p>
@@ -54,7 +54,7 @@
 		   <div class="container">
 				 <div class="row">
 					<div class="col-sm-3">
-						<p class="card-text">Distancia: </p>
+						<p class="card-text"><u>Distancia:</u> </p>
 					</div>
 					<div class="col-sm-3">
 						<p class="card-text">2 KM</p>
@@ -69,7 +69,7 @@
 			<div class="container">
 				 <div class="row">
 					<div class="col-sm-3">
-						<p class="card-text">Calific&aacute;cion general</p>
+						<p class="card-text"><u>Calific&aacute;cion general</u></p>
 					</div>
 					<div class="col-sm-3">
 						<p class="card-text">3.5</p>
@@ -78,7 +78,10 @@
 						<p class="card-text">Favorito</p>
 					</div>
 					<div class="col-sm-3">
-						<input name="intereses" type="radio" value="rbiinternet" checked="checked" />
+						<fieldset class="form-group">
+                    	<input type="checkbox" id="favorito">
+                    	<label for="favorito"></label>
+                		</fieldset>
 					</div>
 				</div>
 			</div>
@@ -90,7 +93,7 @@
 			<div class="container">
 				 <div class="row">
 					<div class="col-sm-3">
-						<p class="card-text">Tu Opini&oacute;n</p>
+						<p class="card-text"><u>Tu Opini&oacute;n</u></p>
 					</div>
 					<div class="col-sm-3">
 							 <input type="text" id="form97" class="form-control validate">
