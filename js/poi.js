@@ -3,17 +3,20 @@ function Poi(nombre,coordenada,horario,distanciaMinCercania){
 	this.coordenada=coordenada;
 	this.horario=horario;
 	this.distanciaMinCercania=distanciaMinCercania;
+
+
 }
 
-
-function estaCercaDe(point) {
+Poi.prototype= {
+estaCercaDe: function (point) {
 	var self = this;
 		return  self.coordenada.distance(point) <= self.distanciaMinCercania;
 	}
 
-function estaAbierto(nombre,dia,hora,minuto) {
-		(horarios.checkHora(hora, minuto));
-	}
+//estaAbierto: function(nombre,dia,hora,minuto) {
+	//	(horarios.checkHora(hora, minuto));
+	//}
+};
 /*new Poi({nombre: "blah", coordenada: 2})
 
 function Poi(opts){
