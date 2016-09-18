@@ -20,40 +20,39 @@
         <div class="container">
           <h4 class="card-title"><b>Login Usuario POI</b></h4>
           <br>
-        </div>
-        <div class="container">
           <div class="row">
           <div class="col-sm-6">
             <div class="md-form form-group">
                  <i class="fa fa-rebel prefix animated pulse infinite"></i>
-              <input type="email" id="form91" class="form-control validate">
+              <input type="text" id="txtUser" class="form-control validate">
               <label for="form91" data-error="wrong" data-success="right">Escribe tu usuario</label>
             </div>
            </div>           
           </div>
-        </div>
         <br>
-        <div class="container">
           <div class="row">
             <div class="col-sm-6">
               <div class="md-form form-group">
                 <i class="fa fa-lock prefix"></i>
-                <input type="password" id="form92" class="form-control validate">
+                <input type="password" id="txtPassword" class="form-control validate">
                 <label for="form92" data-error="wrong" data-success="right">Escribe tu password</label>
               </div>
             </div>
           </div>
-        </div>
         <br>
-        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="text-danger" id="lblError"></div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-sm-12">
-              <button id="Aceptar" class="btn btn-primary"><i class="fa  fa-check " aria-hidden="true"></i>  Aceptar</button>
+              <button id="Aceptar" class="btn btn-primary" onclick="validarUsuario();"><i class="fa  fa-check " aria-hidden="true"></i>  Aceptar</button>
               <button id="Cancelar" class="btn btn-info" autofocus="true"><i class="fa fa-close" aria-hidden="true"></i>  Cancelar</button>
             </div>
           </div>
-        </div>
       </div>
+
     </div>
 		<!-- SCRIPTS -->
           <!-- JQuery -->
@@ -66,6 +65,11 @@
           <script type="text/javascript" src="js/mdb.min.js"></script>
           <script type="text/javascript" src="js/geodds.js"></script>
           <script type="text/javascript" src="js/poi.js"></script>
+          <script type="text/javascript" src="js/usuario.js"></script>
+          <script type="text/javascript" src="js/repoUsuarios.js"></script>
+
+          <script type="text/javascript" src="js/login.js"></script>
+
   </body>
 </html>
 
