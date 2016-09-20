@@ -20,9 +20,9 @@ describe("Test Colectivo", function() {
 		expect(colectivoA.estaCercaDe(new Point(-38.548845, -55.552687))).toEqual(false);
 	});	
 
-	it ("test distancia console", function() {	
+	/*it ("test distancia console", function() {	
 	console.log(colectivoA.distancia(new Point(-38.548845, -55.552687)));
-	});
+	});*/
 	
 
 });

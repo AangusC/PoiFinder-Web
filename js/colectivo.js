@@ -1,23 +1,13 @@
 
-
-function Colectivo(op) {
+var Colectivo = Poi.extend(function (op) {
 	this.nombre= op.nombre  || "";
 	this.paradas= op.paradas  || "";
-
-	//this.paradas=JSON.parse(opts.paradas);
-	//this.distanciaMinCercania=0.5;
-
-
-
-	/*this.estaCercaDe= function (point) {
-      		
-      return this.paradas.some(parada => parada.distance(point)<=0.1);
-    }*/
-
-	Colectivo.prototype.estaCercaDe = function (point) {
+})
+  .methods({
+	estaCercaDe: function (point) {
 		return this.paradas.some(parada => parada.distance(point) <= 0.1);
-	};
-	Colectivo.prototype.distancia= function(point){
+	},
+	distancia: function(point){
 		var tempa=this.paradas[0].distance(point);
 		 for(var i=1;i<this.paradas.size;i++){
 		 	if(this.paradas[i].distance(point)< tempa){
@@ -25,6 +15,5 @@ function Colectivo(op) {
 		 	}
 		 }
 		return tempa;
-	};
-}
-Colectivo.extends(Poi);
+	}
+  });

@@ -1,6 +1,5 @@
-function Poi(myJson){
-	
-	
+
+var Poi = klass(function (myJson) {
 		this.nombre = myJson.nombre || "";
 		this.coordenada = myJson.coordenada || "";
 		this.horarioap = myJson.horario || "";
@@ -11,19 +10,19 @@ function Poi(myJson){
 		this.numero = myJson.numero || 0;
 		this.diasAtencion = myJson.dias || ["lunes","martes","miercoles","jueves","viernes"];
 		this.palabrasClaves = myJson.Claves ||"";
-	
-
-	self = this;
-
-	this.opiniones = [];
-
-	this.guardarOpinion = function(texto, user, puntaje) {
+		this.opiniones = [];
+})
+  .statics({
+    head: ':)',
+    feet: '_|_'
+  })
+  .methods({
+ 	guardarOpinion: function(texto, user, puntaje) {
 		//opiniones.removeIf([o|o.user == user])
 		var op = new Opinion(texto, user, puntaje);
 		this.opiniones.push(op);
-	};
-
-	this.getPoints = function() {
+	},
+	getPoints: function() {
 		var pun =0;
 		var len = this.opiniones.length;
 		if (len > 0 ) {
@@ -33,32 +32,24 @@ function Poi(myJson){
 			pun = pun / len;
 		}
         return pun;
-	};
-	this.getOpinion = function(user){
+	},
+	getOpinion: function(user){
 		var tmp=this.opiniones.filter(op=> op.usuario.nombre == user.nombre);
 		return tmp[0];
-	};
-
-}
-
-
-
-Poi.prototype.estaCercaDe= function (point) {
-		return  self.coordenada.distance(point) <= self.distanciaMinCercania;
-	};
-
-Poi.prototype.estaAbierto= function(hora) {
-
-		return (hora >= self.horarioap)&&(hora<=self.horariocie);
+	},
+	estaCercaDe: function (point) {
+		return  this.coordenada.distance(point) <= this.distanciaMinCercania;
+	},
+	estaAbierto: function(hora) {
+		return (hora >= this.horarioap)&&(hora<=this.horariocie);
 		//return	(self.checkHora(hora));
-	
-};
-Poi.prototype.distancia= function(point) {
-
+	},
+	distancia: function(point) {
 		return coordenada.distancie(point);
-	
-	
-};
+	}
+});
+
+
 
 /*function checkHora(hora){
 	var self = this;

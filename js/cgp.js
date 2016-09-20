@@ -1,9 +1,22 @@
-Cgp.extends(Poi);
-
-
-function Cgp(comuna) {
+var Cgp = Poi.extend(function (comuna) {
 	this.comuna=comuna;
 	this.servicios = [];
+})
+  .methods({
+	estaCercaDe: function (point) {
+		return this.comuna.validarPosicion(point);
+	},
+	estaAbierto : function (dia, hora, minuto) {
+		return this.servicios.some(service => service.validarFecha(dia, hora, minuto));
+	},
+	matcherXNombre : function (nombre) {
+		return this.direccion.toLowerCase.contains(nombre.toLowerCase)
+			||barrio.toLowerCase.contains(nombre.toLowerCase);
+	}
+  });
+
+/*function Cgp(comuna) {
+	
 
 	Cgp.prototype.estaCercaDe = function (point) {
       return this.comuna.validarPosicion(point);
@@ -20,7 +33,7 @@ function Cgp(comuna) {
 
 	/*this.estaCercaDe= function (point) {
       return this.comuna.validarPosicion(point);
-    }*/
+    }
 	Cgp.prototype.estaAbierto = function (nombre, dia, hora, minuto) {
 		return this.servicios.some(service => service.existeNombreIgual(nombre) && service.validarFecha(dia, hora, minuto))
 	};
@@ -45,7 +58,7 @@ function Cgp(comuna) {
 
 
 };
-
+*/
 
 
 
