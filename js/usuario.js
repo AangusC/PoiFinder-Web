@@ -8,29 +8,25 @@ function Usuario(nombre,password){
 
     // FAVORITOS
 
-	/*var favoritos = ["Galicia",
-					"Santander",
-					78,
-					"Lo de Carlos"];
-					*/
-
-	// List for default
-	/*
-	var favoritos	= [	 new Poi("Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5)];
-
+	var favoritos = [];
+					
 	// add new Poi
-	this.agregarFavoritos = function(Poi) {
-		favoritos.push("Poi");
+	this.agregarFavoritos = function(poi) {
+		favoritos.push(poi);
 	};
 
-	this.esFavorito = function(Poi) {
-		favoritos.contains(Poi);
+	this.esFavorito = function(poi) {
+		var existe = false;
+		var len = favoritos.length;
+		for (i = 0; i < len ; i++) {
+			existe = (favoritos[i].nombre == poi.nombre);
+		}
+		return existe;
 	};
 
 	this.getFavoritos = function() {
 		return favoritos
 	}
 
-	*/
 
 }

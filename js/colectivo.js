@@ -1,5 +1,3 @@
-Colectivo.extends(Poi);
-
 function Colectivo(nombre,parada) {
 	this.nombre= nombre;
 	this.paradas=parada;
@@ -7,9 +5,7 @@ function Colectivo(nombre,parada) {
 	//this.paradas=JSON.parse(opts.paradas);
 	//this.distanciaMinCercania=0.5;
 
-	Colectivo.prototype.estaCercaDe = function (point) {
-		return this.paradas.some(parada => parada.distance(point) <= 0.1);
-	};
+
 
 	/*this.estaCercaDe= function (point) {
       		
@@ -17,4 +13,9 @@ function Colectivo(nombre,parada) {
     }*/
 
 
+};
+Colectivo.extends(Poi);
+
+Colectivo.prototype.estaCercaDe = function (point) {
+	return this.paradas.some(parada => parada.distance(point) <= 0.1);
 };

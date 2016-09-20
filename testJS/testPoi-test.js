@@ -1,5 +1,5 @@
 
-describe("Test 1", function() {
+describe("Test Poi", function() {
 
 	var bombonera;
 	var comisaria24;
@@ -31,7 +31,31 @@ describe("Test 1", function() {
 	it("test estaAbierto", function() {
 		expect(poi.estaAbierto(13)).toEqual(true);
 	});
-		it("test estaCerrado", function() {
+	it("test estaCerrado", function() {
 		expect(poi.estaAbierto(21)).toEqual(false);
 	});
+
+	it("sin opiniones", function() {
+		expect(poi.opiniones.length).toBe(0);
+	});
+
+	it("guardar Opinion", function() {
+		poi.guardarOpinion('me gusta', 'yo', 3)
+		expect(poi.opiniones.length).toBe(1);
+	});
+
+	it("getPoints sin opiniones", function() {
+		expect(poi.getPoints()).toBe(0);
+	});
+
+	it("getPoints con 1 opinion", function() {
+		poi.guardarOpinion('me gusta', 'yo', 3)
+		expect(poi.getPoints()).toBe(3);
+	});
+		it("getPoints con 1 opinion", function() {
+		poi.guardarOpinion('me gusta maso', 'el', 1)
+		poi.guardarOpinion('me gusta', 'yo', 3)
+		expect(poi.getPoints()).toBe(2);
+	});
+
 });

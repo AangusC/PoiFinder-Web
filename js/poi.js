@@ -6,6 +6,26 @@ function Poi(nombre,coordenada,horario,horario2,distanciaMinCercania){
 	this.distanciaMinCercania=distanciaMinCercania;
 	self = this;
 
+	this.opiniones = [];
+
+	this.guardarOpinion = function(texto, user, puntaje) {
+		//opiniones.removeIf([o|o.user == user])
+		var op = new Opinion(texto, user, puntaje)
+		this.opiniones.push(op)
+	}
+
+	this.getPoints = function() {
+		var pun =0;
+		var len = this.opiniones.length;
+		if (len > 0 ) {
+			for (i = 0; i < len ; i++) {
+				pun = pun + this.opiniones[i].score
+			}
+			pun = pun / len;
+		}
+        return pun;
+	}
+
 };
 
 
