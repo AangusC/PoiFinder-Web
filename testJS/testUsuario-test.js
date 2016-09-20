@@ -15,6 +15,7 @@ describe("Test Usuario", function() {
 	it("test password correcta", function() {
 		expect(userPP.esPasswordValida("pp")).toEqual(true);
 	});
+
 	it("test password incorrecta", function() {
 		expect(userPapa.esPasswordValida("pp")).toEqual(false);
 	});
@@ -24,11 +25,30 @@ describe("Test Usuario", function() {
 		userPapa.agregarFavoritos(poi)
 		expect(userPapa.getFavoritos().length).toBe(1);
 	});
+
+	it("agregar Favoritos y Eliminar de la Lista", function() {
+		var poi1 = new Poi("Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5);
+		var poi2 = new Poi("CGP",new Point(-34.546562, -58.556038),12,20,0.5);
+		var poi3 = new Poi("Verduleria Raul",new Point(-34.546562, -58.556038),12,20,0.5);
+		var poi4 = new Poi("78",new Point(-34.546562, -58.556038),12,20,0.5);
+		userPapa.agregarFavoritos(poi1)
+		userPapa.agregarFavoritos(poi2)
+		userPapa.agregarFavoritos(poi3)
+		userPapa.agregarFavoritos(poi4)
+		expect(userPapa.getFavoritos().length).toBe(4);
+		userPapa.eliminarFavoritos()
+		expect(userPapa.getFavoritos().length).toBe(3);
+		userPapa.eliminarFavoritos()
+		userPapa.eliminarFavoritos()
+		expect(userPapa.getFavoritos().length).toBe(1);
+	});
+
 	it("es Favorito", function() {
 		var poi = new Poi("Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5);
 		userPapa.agregarFavoritos(poi)
 		expect(userPapa.esFavorito(poi)).toEqual(true);
 	});
+
 	it("no es Favorito", function() {
 		var poi = new Poi("Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5);
 		var poi2 = new Poi("Chungo",new Point(-34.546562, -58.556038),12,20,0.5);

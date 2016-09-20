@@ -28,5 +28,10 @@ function Usuario(nombre,password){
 		return favoritos
 	}
 
+	// deleted Poi
+	this.eliminarFavoritos = function() {
+		favoritos.pop();
+	};
+
 
 }
