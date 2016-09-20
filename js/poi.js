@@ -1,9 +1,10 @@
-function Poi(nombre,coordenada,horario,horario2,distanciaMinCercania){
-	this.nombre= nombre;
-	this.coordenada=coordenada;
-	this.horarioap=horario;
-	this.horariocie=horario2;
-	this.distanciaMinCercania=distanciaMinCercania;
+function Poi(myJson){
+	this.nombre = myJson.nombre || "";
+	this.coordenada = myJson.coordenada || "";
+	this.horarioap = myJson.horario || "";
+	this.horariocie = myJson.horario2 || "";
+	this.distanciaMinCercania = myJson.distanciaMinCercania || 0.1;
+	this.direccion = myJson.direccion || "";
 	self = this;
 
 	this.opiniones = [];
