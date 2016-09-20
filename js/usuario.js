@@ -16,12 +16,7 @@ function Usuario(nombre,password){
 	};
 
 	this.esFavorito = function(poi) {
-		var existe = false;
-		var len = favoritos.length;
-		for (i = 0; i < len ; i++) {
-			existe = (favoritos[i].nombre == poi.nombre);
-		}
-		return existe;
+		return (indiceFavorito(poi) > -1)
 	};
 
 	this.getFavoritos = function() {
@@ -29,8 +24,23 @@ function Usuario(nombre,password){
 	}
 
 	// deleted Poi
-	this.eliminarFavoritos = function() {
-		favoritos.pop();
+	this.eliminarFavoritos = function(poi) {
+		var indice = indiceFavorito(poi);
+		if (indice > -1) {
+			favoritos.splice(indice, 1);
+		}
+	};
+
+	function indiceFavorito(poi) {
+		var indice = -1;
+		var len = favoritos.length;
+		for (i = 0; i < len ; i++) {
+			if (favoritos[i].nombre == poi.nombre) {
+				indice = i;
+				break;
+			}
+		}
+		return indice;
 	};
 
 
