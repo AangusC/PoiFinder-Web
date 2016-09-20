@@ -27,10 +27,10 @@ describe("Test Usuario", function() {
 	});
 
 	it("Eliminar favoritos", function() {
-		var poi1 = new Poi({"Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5});
-		var poi2 = new Poi({"CGP",new Point(-34.546562, -58.556038),12,20,0.5});
-		var poi3 = new Poi({"Verduleria Raul",new Point(-34.546562, -58.556038),12,20,0.5});
-		var poi4 = new Poi({"78",new Point(-34.546562, -58.556038),12,20,0.5});
+		var poi1 = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
+		var poi2 = new Poi({nombre:"CGP",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
+		var poi3 = new Poi({nombre:"Verduleria Raul",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
+		var poi4 = new Poi({nombre:78,coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
 		userPapa.agregarFavoritos(poi1);
 		userPapa.agregarFavoritos(poi2);
 		userPapa.agregarFavoritos(poi3);
@@ -46,14 +46,14 @@ describe("Test Usuario", function() {
 	});
 
 	it("es Favorito", function() {
-		var poi = new Poi({"Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5});
+		var poi = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
 		userPapa.agregarFavoritos(poi);
 		expect(userPapa.esFavorito(poi)).toEqual(true);
 	});
 
 	it("no es Favorito", function() {
-		var poi = new Poi({"Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5});
-		var poi2 = new Poi({"Chungo",new Point(-34.546562, -58.556038),12,20,0.5});
+		var poi = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
+		var poi2 = new Poi({nombre:"Chungo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
 		userPapa.agregarFavoritos(poi);
 		expect(userPapa.esFavorito(poi2)).toEqual(false);
 	});

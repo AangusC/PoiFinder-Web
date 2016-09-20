@@ -1,14 +1,17 @@
 function Poi(myJson){
-	this.nombre = myJson.nombre || "";
-	this.coordenada = myJson.coordenada || "";
-	this.horarioap = myJson.horario || "";
-	this.horariocie = myJson.horario2 || "";
-	this.distanciaMinCercania = myJson.distanciaMinCercania || 0.1;
-	this.direccion = myJson.direccion || "";
-	this.barrio = myJson.barrio ||"";				
-	this.numero = myJson.numero || 0;
-	this.diasAtencion = myJson.dias || ["lunes","martes","miercoles","jueves","viernes"];
-	this.palabrasClaves = myJson.Claves ||"";
+	
+	
+		this.nombre = myJson.nombre || "";
+		this.coordenada = myJson.coordenada || "";
+		this.horarioap = myJson.horario || "";
+		this.horariocie = myJson.horario2 || "";
+		this.distanciaMinCercania = myJson.distanciaMinCercania || 0.1;
+		this.direccion = myJson.direccion || "";
+		this.barrio = myJson.barrio ||"";				
+		this.numero = myJson.numero || 0;
+		this.diasAtencion = myJson.dias || ["lunes","martes","miercoles","jueves","viernes"];
+		this.palabrasClaves = myJson.Claves ||"";
+	
 
 	self = this;
 
@@ -48,6 +51,12 @@ Poi.prototype.estaAbierto= function(hora) {
 
 		return (hora >= self.horarioap)&&(hora<=self.horariocie);
 		//return	(self.checkHora(hora));
+	
+};
+Poi.prototype.distancia= function(point) {
+
+		return coordenada.distancie(point);
+	
 	
 };
 
