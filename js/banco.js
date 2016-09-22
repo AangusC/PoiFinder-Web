@@ -1,10 +1,16 @@
-Banco.extends(Poi);
-
-
-function Banco() {
-
+var Banco = Poi.extends(function(nombre){
+	this.nombre = nombre;
 	this.servicios = [];
 	this.diasAtencion = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
+	this.horarios = [10, 00, 15, 00];
+})
+
+
+
+
+//function Banco() {
+
+.methods({
 
 	// add new Servicio
 	this.agregarServicio = function (Servicio) {
@@ -16,6 +22,11 @@ function Banco() {
 	};
 
 	Banco.prototype.estaAbierto = function (nombre, dia, hora, minuto) {
-		(horarios.checkHora(hora, minuto) && diasAtencion.some(dia))
-		//return this.servicios.some(service => service.existeNombreIgual(nombre) && service.validarFecha(dia, hora, minuto))
+		(horarios.checkHora(hora, minuto) && diasAtencion.some(dia));
+		
 	};
+
+
+
+
+});

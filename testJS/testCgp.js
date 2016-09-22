@@ -9,6 +9,8 @@ describe("Test Cgp", function() {
 		cgp = new Cgp(comuna);
 	});
 
+
+
 	it("dentro de la comuna", function() {			
 		console.log(comuna.area)
 		expect(cgp.estaCercaDe(new Point(-34.513427, -58.479704))).toEqual(true);
@@ -19,6 +21,7 @@ describe("Test Cgp", function() {
 	});
 
 
+/*
 	it("esta abierto", function() {	
 		var servicio1 = new Servicio({nombre:"Atencion al Vecino",horaApertura:12,horaCierre:20 });
 		var servicio2 = new Servicio({nombre:"Cuidado",horaApertura:14, horaCierre:21 });
@@ -28,5 +31,10 @@ describe("Test Cgp", function() {
 		cgp.agregarServicio(servicio3);
 		expect(cgp.estaServicio("Cuidado")).toEqual(true);
 	});
+	*/
+
+	
+	
+	
 
 });
