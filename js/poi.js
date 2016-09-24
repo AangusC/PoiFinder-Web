@@ -2,14 +2,13 @@
 var Poi = klass(function (myJson) {
 		this.nombre = myJson.nombre || "";
 		this.coordenada = myJson.coordenada || "";
-		this.horarioap = myJson.horario || "";
-		this.horariocie = myJson.horario2 || "";
+		this.horarios = myJson.horario || new Horario(0,0,0,0);
 		this.distanciaMinCercania = myJson.distanciaMinCercania || 0.1;
 		this.direccion = myJson.direccion || "";
 		this.barrio = myJson.barrio ||"";				
 		this.numero = myJson.numero || 0;
 		this.diasAtencion = myJson.dias || ["lunes","martes","miercoles","jueves","viernes"];
-		this.palabrasClaves = myJson.Claves ||"";
+		this.claves = myJson.claves ||"";
 		this.opiniones = [];
 })
   .statics({
@@ -40,13 +39,16 @@ var Poi = klass(function (myJson) {
 	estaCercaDe: function (point) {
 		return  this.coordenada.distance(point) <= this.distanciaMinCercania;
 	},
-	estaAbierto: function(hora) {
-		return (hora >= this.horarioap)&&(hora<=this.horariocie);
-		//return	(self.checkHora(hora));
+	estaAbierto: function(dia,hora,min) {
+		return (this.horarios.checkHora(hora, min) && this.diasAtencion.contains(dia))
 	},
 	distancia: function(point) {
 		return coordenada.distancie(point);
+	},
+	matcherXNombre: function(_nombre){
+		nombre.startsWith(_nombre)
 	}
+
 });
 
 

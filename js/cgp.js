@@ -1,6 +1,7 @@
-var Cgp = Poi.extend(function (comuna) {
-	this.comuna=comuna;
-	this.servicios = [];
+var Cgp = Poi.extend(function (op) {
+	this.comuna=op.comuna;
+	this.servicios = op.servicio;
+	me=this
 })
   .methods({
 	estaCercaDe: function (point) {
@@ -12,46 +13,15 @@ var Cgp = Poi.extend(function (comuna) {
 	matcherXNombre : function (nombre) {
 		return this.direccion.toLowerCase.contains(nombre.toLowerCase)
 			||barrio.toLowerCase.contains(nombre.toLowerCase);
+	},
+	agregarServicio : function(Servicio) {
+		this.servicios.push(Servicio);
+	},
+	estaServicio : function (nombre) {
+		return this.servicios.some(servicio => servicio.nombre == nombre)
+		
 	}
   });
-
-/*function Cgp(comuna) {
-	
-	Cgp.prototype.estaCercaDe = function (point) {
-      return this.comuna.validarPosicion(point);
-    };
-    // add new Servicio
-	this.agregarServicio = function(Servicio) {
-		this.servicios.push(Servicio);
-	};
-	this.numComuna = function() {
-		this.comuna.getNombre()
-	};
-	/*this.estaCercaDe= function (point) {
-      return this.comuna.validarPosicion(point);
-    }
-	Cgp.prototype.estaAbierto = function (nombre, dia, hora, minuto) {
-		return this.servicios.some(service => service.existeNombreIgual(nombre) && service.validarFecha(dia, hora, minuto))
-	};
-	Cgp.prototype.estaAbierto = function (dia, hora, minuto) {
-		return this.servicios.some(service => service.validarFecha(dia, hora, minuto))
-	};
-	Cgp.prototype.estaServicio = function (nombre) {
-		return this.servicios.some(servicio => servicio.nombre == nombre)
-		//return this.servicios.some(servicio => servicio.nombre.startsWith(nombre))
-	};
-	Cgp.prototype.estaCercaDe = function (point) {
-		return this.estaCerca = this.comuna.validarPosicion(point)
-	};
-	Cgp.prototype.matcherXNombre = function (nombre) {
-		return this.direccion.toLowerCase.contains(nombre.toLowerCase)
-			||barrio.toLowerCase.contains(nombre.toLowerCase)
-	};
-};
-*/
-
-
-
 
 
 function Comuna(nombre,area) {
@@ -64,11 +34,11 @@ function Comuna(nombre,area) {
 };
 
 
-
 function Servicio(opts) {
 	this.nombre=opts.nombre;
 	this.horaOpen=opts.horaApertura;
 	this.horaclose=opts.horaCierre;
+	this.diasAtencion=opts.diasAtencion;
 
 	this.existeNombreIgual = function (texto) {
 		this.nombre.matches(texto)
