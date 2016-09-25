@@ -40,7 +40,7 @@ var Poi = klass(function (myJson) {
 		return  this.coordenada.distance(point) <= this.distanciaMinCercania;
 	},
 	estaAbierto: function(dia,hora,min) {
-		return (this.horarios.checkHora(hora, min) && this.diasAtencion.contains(dia))
+		return (this.horarios.checkHora(hora, min) && this.diasAtencion.includes(dia))
 	},
 	distancia: function(point) {
 		return coordenada.distancie(point);

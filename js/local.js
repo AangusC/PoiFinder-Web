@@ -4,6 +4,6 @@ var Local = Poi.extend(function (op) {
   .methods({
 	
 	matcherXNombre : function (_nombre) {
-		this.claves.contains(_nombre)|| this.categoria == _nombre || this.nombre.startsWith(_nombre)
+		return (this.claves.includes(_nombre) || this.categoria == _nombre || this.nombre.startsWith(_nombre))
 	}
   });

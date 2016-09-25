@@ -10,8 +10,8 @@ describe("Test Local", function() {
 
 
 
-	it("Machear x nombre ", function() {					
-		expect(local.matcherXNombre("Lo de tere").toEqual(true);
+	it("Machear x nombre ", function() {	
+		expect(local.matcherXNombre("Lo de tere")).toEqual(true);
 	});	
 	
 

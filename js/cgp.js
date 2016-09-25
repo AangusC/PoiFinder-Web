@@ -11,8 +11,8 @@ var Cgp = Poi.extend(function (op) {
 		return this.servicios.some(service => service.validarFecha(dia, hora, minuto));
 	},
 	matcherXNombre : function (nombre) {
-		return this.direccion.toLowerCase.contains(nombre.toLowerCase)
-			||barrio.toLowerCase.contains(nombre.toLowerCase);
+		return this.direccion.toLowerCase.includes(nombre.toLowerCase)
+			||barrio.toLowerCase.includes(nombre.toLowerCase);
 	},
 	agregarServicio : function(Servicio) {
 		this.servicios.push(Servicio);
@@ -45,6 +45,6 @@ function Servicio(opts) {
 	}
 
 	this.validarFecha  = function (dia, hora, minuto) {
-		(horarios.checkHora(hora, minuto) && diasAtencion.contains(dia))
+		(horarios.checkHora(hora, minuto) && diasAtencion.includes(dia))
 	}
 };

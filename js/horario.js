@@ -1,19 +1,23 @@
-function Horario(horaA,minA,horaC,minC) {
-	this.horaAperturaMañana=horaA;
-	this.minutoAperturaMañana=minA;
-	this.horaAperturaMañana=horaC;
-	this.minutoCierreMañana=minC;
+function Horario(abreHoraMañana, abreMinMañana,cierraHoraMañana,cierraMinMañana) {
+	this.horaAperturaMañana = abreHoraMañana;
+	this.minutoAperturaMañana =abreMinMañana;
+	this.horaCierreMañana = cierraHoraMañana;
+	this.minutoCierreMañana = cierraMinMañana;
+	this.horaAperturaTarde = 0;
+	this.minutoAperturaTarde = 0;
+	this.horaCierreTarde = 0;
+	this.minutoCierreTarde = 0;
 
 	this.checkHora = function (hora, minuto) {
-		entreHora(hora, minuto, horaAperturaMañana, minutoAperturaMañana, horaCierreMañana, minutoCierreMañana) ||
-			entreHora(hora, minuto, horaAperturaTarde, minutoAperturaTarde, horaCierreTarde, minutoCierreTarde)
+		return (this.entreHora(hora, minuto, this.horaAperturaMañana, this.minutoAperturaMañana, this.horaCierreMañana, this.minutoCierreMañana) ||
+			this.entreHora(hora, minuto, this.horaAperturaTarde, this.minutoAperturaTarde, this.horaCierreTarde, this.minutoCierreTarde))
 	};
 
 	this.entreHora = function (horaUsuario, minutoUsuario, horaAperturaDato, minutoAperturaDato, horaCierreDato, minutoCierreDato) {
 		if (horaUsuario > horaAperturaDato && horaUsuario < horaCierreDato) {
 			return true
 		} else {
-			(horaUsuario == horaCierreDato && minutoUsuario <= minutoCierreDato) || (horaUsuario == horaAperturaDato && minutoUsuario >= minutoAperturaDato)
+			return ((horaUsuario == horaCierreDato && minutoUsuario <= minutoCierreDato) || (horaUsuario == horaAperturaDato && minutoUsuario >= minutoAperturaDato))
 		}
 	};
 

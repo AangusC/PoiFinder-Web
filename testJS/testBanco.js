@@ -4,19 +4,14 @@ describe("Test Banco", function() {
 
 	beforeEach(function() {
 
-		banco = new Banco(galicia);
+		banco = new Banco({nombre:"galicia"});
 	});
 
 
-	/*
+	
 	it("esta abierto", function() {	
-		expect(banco.estaAbierto("xxx", "Lunes" , 11, 05)).toEqual(true);
+		expect(banco.estaAbierto("lunes" , 11, 05)).toEqual(true);
 	});
-	*/
 	
-	
-
-
-
 
 });
