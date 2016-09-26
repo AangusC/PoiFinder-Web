@@ -1,5 +1,7 @@
 var Local = Poi.extend(function (op) {
 	this.categoria=op.categoria;
+	this.coordenada= op.coordenada  || "";
+
 })
   .methods({
 	

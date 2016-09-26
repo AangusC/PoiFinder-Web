@@ -2,26 +2,40 @@ var Cgp = Poi.extend(function (op) {
 	this.comuna=op.comuna;
 	this.servicios = op.servicio;
 	me=this
+
+	  	this.getServicios = function() {
+		return this.servicios
+	}
 })
+
+
+
   .methods({
 	estaCercaDe: function (point) {
 		return this.comuna.validarPosicion(point);
 	},
+
 	estaAbierto : function (dia, hora, minuto) {
 		return this.servicios.some(service => service.validarFecha(dia, hora, minuto));
 	},
+
 	matcherXNombre : function (nombre) {
 		return this.direccion.toLowerCase.includes(nombre.toLowerCase)
 			||barrio.toLowerCase.includes(nombre.toLowerCase);
 	},
+
 	agregarServicio : function(Servicio) {
 		this.servicios.push(Servicio);
 	},
+
 	estaServicio : function (nombre) {
 		return this.servicios.some(servicio => servicio.nombre == nombre)
-		
 	}
+
   });
+
+
+
 
 
 function Comuna(nombre,area) {
