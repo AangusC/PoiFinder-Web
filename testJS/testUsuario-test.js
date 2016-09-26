@@ -21,16 +21,16 @@ describe("Test Usuario", function() {
 	});
 
 	it("agregar Favoritos", function() {
-		var poi = new Poi("Arnaldo",new Point(-34.546562, -58.556038),12,20,0.5);
+		var poi = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00),distanciMinCercania:0.5});
 		userPapa.agregarFavoritos(poi);
 		expect(userPapa.getFavoritos().length).toBe(1);
 	});
 
 	it("Eliminar favoritos", function() {
-		var poi1 = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
-		var poi2 = new Poi({nombre:"CGP",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
-		var poi3 = new Poi({nombre:"Verduleria Raul",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
-		var poi4 = new Poi({nombre:78,coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
+		var poi1 = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00)});
+		var poi2 = new Poi({nombre:"CGP",coordenadas:new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00)});
+		var poi3 = new Poi({nombre:"Verduleria Raul",coordenadas:new Point(-34.546562, -58.556038),horarios: new Horario(12,00,16,00)});
+		var poi4 = new Poi({nombre:78,coordenadas:new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00)});
 		userPapa.agregarFavoritos(poi1);
 		userPapa.agregarFavoritos(poi2);
 		userPapa.agregarFavoritos(poi3);
@@ -46,16 +46,16 @@ describe("Test Usuario", function() {
 	});
 
 	it("es Favorito", function() {
-		var poi = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
+		var poi = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00)});
 		userPapa.agregarFavoritos(poi);
 		expect(userPapa.esFavorito(poi)).toEqual(true);
 	});
 
 	it("no es Favorito", function() {
-		var poi = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
-		var poi2 = new Poi({nombre:"Chungo",coordenadas:new Point(-34.546562, -58.556038),horario:12,horario2:20});
-		userPapa.agregarFavoritos(poi);
-		expect(userPapa.esFavorito(poi2)).toEqual(false);
+		var local1 = new Poi({nombre:"Arnaldo",coordenadas:new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00)});
+		var colectivo = new Poi({nombre:78,paradas:[new Point(-34.548845, -58.553234),new Point(-34.549871, -58.551947)]});
+		userPapa.agregarFavoritos(local1);
+		expect(userPapa.esFavorito(colectivo)).toEqual(false);
 	});
 
 });

@@ -7,7 +7,7 @@ describe("Test Banco", function() {
 	});
 
 	it("esta abierto", function() {	
-		expect(banco.estaAbierto("lunes" , 11, 05)).toEqual(true);
+		expect(banco.estaAbierto("lunes" , 11, 00)).toEqual(true);
 	});
 
 	it("NO esta abierto, horario no cumple condicion", function() {	

@@ -1,15 +1,7 @@
 var Cgp = Poi.extend(function (op) {
 	this.comuna=op.comuna;
 	this.servicios = op.servicio;
-	me=this
-
-	  	this.getServicios = function() {
-		return this.servicios
-	}
 })
-
-
-
   .methods({
 	estaCercaDe: function (point) {
 		return this.comuna.validarPosicion(point);
@@ -18,10 +10,14 @@ var Cgp = Poi.extend(function (op) {
 	estaAbierto : function (dia, hora, minuto) {
 		return this.servicios.some(service => service.validarFecha(dia, hora, minuto));
 	},
+	/*estaAbierto : function (nombre,dia, hora, minuto) {
+		if(this.estaServicio)
+			return this.servicios.some(service => service.validarFecha(dia, hora, minuto));
+		else return false;
+	},*/
 
 	matcherXNombre : function (nombre) {
-		return this.direccion.toLowerCase.includes(nombre.toLowerCase)
-			||barrio.toLowerCase.includes(nombre.toLowerCase);
+		return this.direccion.toLowerCase.includes(nombre.toLowerCase)||barrio.toLowerCase.includes(nombre.toLowerCase);
 	},
 
 	agregarServicio : function(Servicio) {
@@ -30,6 +26,9 @@ var Cgp = Poi.extend(function (op) {
 
 	estaServicio : function (nombre) {
 		return this.servicios.some(servicio => servicio.nombre == nombre)
+	},
+	getServicios : function() {
+		return this.servicios;
 	}
 
   });
@@ -50,15 +49,14 @@ function Comuna(nombre,area) {
 
 function Servicio(opts) {
 	this.nombre=opts.nombre;
-	this.horaOpen=opts.horaApertura;
-	this.horaclose=opts.horaCierre;
-	this.diasAtencion=opts.diasAtencion;
+	this.horarios= opts.horarios || new Horario(0,0,0,0);	
+	this.diasAtencion=opts.diasAtencion || ["lunes","martes","miercoles","jueves","viernes"];
 
 	this.existeNombreIgual = function (texto) {
-		this.nombre.matches(texto)
+		return this.nombre.matches(texto)
 	}
 
 	this.validarFecha  = function (dia, hora, minuto) {
-		(horarios.checkHora(hora, minuto) && diasAtencion.includes(dia))
+		return (this.horarios.checkHora(hora, minuto) && this.diasAtencion.includes(dia))
 	}
 };

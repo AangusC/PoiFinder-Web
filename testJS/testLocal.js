@@ -2,12 +2,13 @@
 describe("Test Local", function() {
 
 	var local;
-	
+	var coordenada2;
+	var coordenada1;
 
 	beforeEach(function() {
-		local1 = new Local({nombre:"Lo de tere",claves:["pastas","carnes"],categoria:"restorant" });
-		local2 = new Local({nombre:"gym",claves:["pastas","carnes"],categoria:"restorant" });
-		local3 = new Local({nombre:"carniceria",claves:["pastas","carnes"],categoria:"restorant" });
+		local1 = new Local({nombre:"Lo de tere",claves:["pastas","carnes"],categoria:"restorante" ,coordenada:new Point(-34.553384, -58.557325),distanciaMinCercania:0.2});
+		coordenada2 = new Point(-34.552474, -58.556467);
+		coordenada1 = new Point(-34.548688, -98.552837);
 	});
 
 	it("local1 encontrado, Machear por nombre", function() {	
@@ -18,19 +19,20 @@ describe("Test Local", function() {
 		expect(local1.matcherXNombre("Raul")).toEqual(false);
 	});
 
-	it("local2 encontrado, Machear por nombre", function() {	
-		expect(local2.matcherXNombre("g")).toEqual(true);
+	it("local2 encontrado, Machear por categoria", function() {	
+		expect(local1.matcherXNombre("restorante")).toEqual(true);
+	});
+	it("local2 encontrado, Machear por claves", function() {	
+		expect(local1.matcherXNombre("pastas")).toEqual(true);
 	});
 
-	it("local3 encontrado, Machear por nombre", function() {	
-		expect(local3.matcherXNombre("carn")).toEqual(true);
+	it("test distancia verdadera", function() {
+		expect(local1.estaCercaDe(coordenada2)).toEqual(true);
+	});
+	it("test distancia falsa", function() {
+		expect(local1.estaCercaDe(coordenada1)).toEqual(false);
+
 	});
 
-	/* [new Point(-34.508278, -58.479405)]
-	it ("colectivo1 distancia cercana a 0.5 metros", function() {		
-		expect(local.estaCercaDe(new Point(-34.508278, -58.479405))).toEqual(true);
-	});
-	*/
-	
 
 });

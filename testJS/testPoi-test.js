@@ -12,7 +12,7 @@ describe("Test Poi", function() {
 		bombonera = new Point(-34.63565, -58.36465);
 		comisaria24 = new Point(-34.6342281,-58.3603267);
 		obelisco = new Point(-34.603739,-58.38157);
-		poi =new Poi({nombre: "Analdo", coordenada: new Point(-34.546562, -58.556038), horario: new Horario(12,00,16,00),distanciaMinCercania:0.5});		
+		poi =new Poi({nombre: "Analdo", coordenada: new Point(-34.546562, -58.556038), horarios: new Horario(12,00,16,00),distanciaMinCercania:0.5});		
 		coordenadaBanco1 = new Point(-34.548688, -98.552837);
 		coordenadaBanco2 = new Point(-34.548688, -58.552837);
 	});
@@ -23,19 +23,10 @@ describe("Test Poi", function() {
 		expect(poi.estaCercaDe(coordenadaBanco2)).toEqual(true);
 	});
 	it("test distancia falsa", function() {
-		//console.log(poi.coordenada.distance(coordenadaBanco1));
-		//console.log( poi.distanciaMinCercania);
 		expect(poi.estaCercaDe(coordenadaBanco1)).toEqual(false);
 
 	});
-	/*it("test estaAbierto", function() {
-		expect(poi.estaAbierto("lunes",13,30)).toEqual(true);
-	});
-	it("test estaCerrado", function() {
-		expect(poi.estaAbierto("lunes",16,30)).toEqual(false);
-	});*/
-
-	it("sin opiniones", function() {
+		it("sin opiniones", function() {
 		expect(poi.opiniones.length).toBe(0);
 	});
 
