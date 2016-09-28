@@ -7,8 +7,15 @@ poiApp.controller('loginCtrl', function() {
     self.user="";
     self.pass="";
     
+    self.repoUsuarios = new RepoUsuarios();    
+        
     self.validarNombre= function(){
-        console.log("test");
+        self.usuario = self.repoUsuarios.getUsuario(self.user);
+        //if (usuario != undefined) {
+            if (self.usuario.esPasswordValida(self.pass)) {
+                window.location = "busquedaWindows.html";
+            } 
+        //}
     };
     
    
