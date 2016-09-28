@@ -9,7 +9,7 @@ poiApp.controller('loginCtrl', function() {
     
     self.validarNombre= function(){
         console.log("test");
-    }
+    };
     
    
 });
