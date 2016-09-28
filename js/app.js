@@ -9,13 +9,20 @@ poiApp.controller('loginCtrl', function() {
     
     self.repoUsuarios = new RepoUsuarios();    
         
-    self.validarNombre= function(){
-        self.usuario = self.repoUsuarios.getUsuario(self.user);
-        //if (usuario != undefined) {
+    self.validarUser= function(loginForm){
+        
+         try {
+            self.usuario = self.repoUsuarios.getUsuario(self.user);
+        
             if (self.usuario.esPasswordValida(self.pass)) {
                 window.location = "busquedaWindows.html";
-            } 
-        //}
+            }     
+         }catch (exception) {
+            loginForm.$invalid = true;
+            this.errorMessage = exception;
+        }
+         
+        
     };
     
    

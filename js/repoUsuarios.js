@@ -1,19 +1,27 @@
 function RepoUsuarios(){
-
-    var usuarios = [
+    var self = this;
+    
+    self.usuarios = [
         new Usuario("pp", "pp"),
 		new Usuario("papa", "papa")
     ];
 
-    this.getUsuario= function (nombre) {
+    self.getUsuario= function(nombre) {
         var user;
-        var len = usuarios.length;
+        var len = self.usuarios.length;
+        
         for (i = 0; i < len; i++) {
-            if (usuarios[i].nombre == nombre){
-                user =usuarios[i];
+            if (self.usuarios[i].nombre == nombre){
+                user = self.usuarios[i];
                 break;
             }
         }
-        return  user;
+        
+        if(user != undefined) {
+            return  user;    
+        }else{
+             throw "El usuario ingresado no exste.";
+        }
+        
     }
 };
