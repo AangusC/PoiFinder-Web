@@ -20,7 +20,7 @@ function RepoUsuarios(){
         if(user != undefined) {
             return  user;    
         }else{
-             throw "El usuario ingresado no exste.";
+             throw "El usuario ingresado no existe.";
         }
         
     }

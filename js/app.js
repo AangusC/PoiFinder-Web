@@ -16,7 +16,9 @@ poiApp.controller('loginCtrl', function() {
         
             if (self.usuario.esPasswordValida(self.pass)) {
                 window.location = "busquedaWindows.html";
-            }     
+            }else{
+                throw "Password Incorrecto.";
+            }    
          }catch (exception) {
             loginForm.$invalid = true;
             this.errorMessage = exception;
