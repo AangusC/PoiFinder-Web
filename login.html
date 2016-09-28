@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" ng-app="poiApp">
 <head>
 <title>Login</title>
 	<meta charset="utf-8">
@@ -10,10 +10,11 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">  
+    <script src="node_modules/angular/angular.min.js"></script>
 
 </head>
-<body>
+<body  ng-controller="loginCtrl as login">
 <h2 class="animated bounce">Grupo 6</h2>
 <div class="card">
       <div class="card-block">
@@ -24,7 +25,7 @@
           <div class="col-sm-6">
             <div class="md-form form-group">
                  <i class="fa fa-rebel prefix animated pulse infinite"></i>
-              <input type="text" id="txtUser" class="form-control validate">
+              <input type="text" class="form-control validate" ng-model="login.user">
               <label for="form91" data-error="wrong" data-success="right">Escribe tu usuario</label>
             </div>
            </div>           
@@ -34,7 +35,7 @@
             <div class="col-sm-6">
               <div class="md-form form-group">
                 <i class="fa fa-lock prefix"></i>
-                <input type="password" id="txtPassword" class="form-control validate">
+                <input type="password" class="form-control validate" ng-model="login.pass">
                 <label for="form92" data-error="wrong" data-success="right">Escribe tu password</label>
               </div>
             </div>
@@ -47,10 +48,11 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <button id="Aceptar" class="btn btn-primary" onclick="validarUsuario();"><i class="fa  fa-check " aria-hidden="true"></i>  Aceptar</button>
+              <button class="btn btn-primary" ng-click="login.validarNombre"><i class="fa  fa-check " aria-hidden="true"></i>  Aceptar</button>
               <button id="Cancelar" class="btn btn-info" autofocus="true"><i class="fa fa-close" aria-hidden="true"></i>  Cancelar</button>
             </div>
           </div>
+         <span>{{login.user}}</span>
       </div>
 
     </div>
@@ -63,13 +65,13 @@
           <script type="text/javascript" src="js/bootstrap.min.js"></script>
           <!-- MDB core JavaScript -->
           <script type="text/javascript" src="js/mdb.min.js"></script>
-          <script type="text/javascript" src="js/geodds.js"></script>
-          <script type="text/javascript" src="js/poi.js"></script>
+          <!--<script type="text/javascript" src="js/geodds.js"></script>
+          <script type="text/javascript" src="js/poi.js"></script>-->
           <script type="text/javascript" src="js/usuario.js"></script>
           <script type="text/javascript" src="js/repoUsuarios.js"></script>
 
           <script type="text/javascript" src="js/login.js"></script>
-
+          <script src="js/app.js"></script>    
   </body>
 </html>
 
