@@ -1,5 +1,5 @@
 
-describe("Test Usuario", function() {
+describe("Test Repo Usuario", function() {
 
 	var repo;
 	beforeEach(function() {

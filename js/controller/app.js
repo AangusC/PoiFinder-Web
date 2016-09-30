@@ -36,11 +36,11 @@ poiApp.controller('busquedaCtrl', function () {
             "nombre" : "Galicia",
             "direccion" : "Puerredon",
             "cercania" : "No",
-            "favorito" : "☻"
+            "favorito" : "★"
         },
-        { "nombre" : "CGP 1", "direccion" : "Lavalleja 582", "cercania" : "No", "favorito" : "º_º"},
-        { "nombre" : "Santander", "direccion" : "Cochabamba 2219", "cercania" : "No", "favorito" : "º_º"},
-        { "nombre" : "Linea 86", "direccion" : "Calle falsa 123", "cercania" : "Si", "favorito" : "º_º"}
+        { "nombre" : "CGP 1", "direccion" : "Lavalleja 582", "cercania" : "No", "favorito" : ""},
+        { "nombre" : "Santander", "direccion" : "Cochabamba 2219", "cercania" : "No", "favorito" : "★"},
+        { "nombre" : "Linea 86", "direccion" : "Calle falsa 123", "cercania" : "Si", "favorito" : "★"}
     ];
 
     
