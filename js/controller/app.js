@@ -27,6 +27,9 @@ poiApp.controller('loginCtrl', function() {
 });
 
 
+
+// Es un framework de routing muy complejo y poderoso. Trabaja a través de estados, los cuales determinan la vista a utilizar. Permite trabajar con vistas anidadas y múltiples.
+
 // poiApp.controller('busquedaCtrl', function ('ui.router') {
     
 poiApp.controller('busquedaCtrl', function () {
@@ -50,6 +53,28 @@ poiApp.controller('busquedaCtrl', function () {
 
     self.buscar = function() {
         self.filtroActual = self.textoBusqueda
+    };
+
+
+
+
+poiApp.controller('BancoController', function () {
+
+    };
+
+
+poiApp.controller('CgpController', function () {
+
+    };
+
+
+poiApp.controller('ColectivoController', function () {
+
+    };
+
+
+ poiApp.controller('LocalController', function () {
+
     };
 
 });
