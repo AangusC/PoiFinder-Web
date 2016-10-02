@@ -58,7 +58,7 @@ poiApp.controller('busquedaCtrl', function () {
 
 
 
-poiApp.controller('BancoController', function () {
+/*poiApp.controller('BancoController', function () {
 
     };
 
@@ -75,6 +75,6 @@ poiApp.controller('ColectivoController', function () {
 
  poiApp.controller('LocalController', function () {
 
-    };
+    };*/
 
 });
