@@ -26,6 +26,9 @@ poiApp.controller('loginCtrl', function() {
     };       
 });
 
+
+// poiApp.controller('busquedaCtrl', function ('ui.router') {
+    
 poiApp.controller('busquedaCtrl', function () {
     var self=this;
     self.textoBusqueda = '';  
