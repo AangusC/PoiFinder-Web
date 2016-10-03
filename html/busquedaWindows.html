@@ -1,0 +1,55 @@
+
+        <div class="container">
+          <h4 class="card-title"><b>Criterio de b&uacute;squeda</b></h4>
+   
+		   <div class="container">
+				  <div class="row">
+					<div class="col-sm-6">
+					  <input type="text" ng-model="busquedaPoi.textoBusqueda" placeholder="Ingrese termino de busqueda" size="12" max="12">
+					</div>
+					<div class="col-sm-6">
+					  <button class="btn btn-primary" ng-click="busquedaPoi.buscar()"> <i class="fa fa-user-plus" aria-hidden="true"></i>  <span class="glyphicon glyphicon-search"></span> Buscar</button>
+					  </div>
+					</div>
+			</div>
+	   
+      </div>
+    </div>
+	<div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="card-text">Resultado</p>
+              </div>
+          </div>
+     </div>
+</div>
+
+<div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Cercania</th>
+          <th>Favorito</th>         
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="poi in busquedaPoi.listaPios | filter:busquedaPoi.textoBusqueda">
+          <td>{{poi.nombre}}</td>
+          <td>{{poi.direccion}}</td>
+          <td>{{poi.cercania}}</td>
+          <td>{{poi.favorito}}</td>          
+        </tr>
+        </tbody>         
+    </table>
+	</div>
+
+ </div>
+
+
+
+
+
+
+   

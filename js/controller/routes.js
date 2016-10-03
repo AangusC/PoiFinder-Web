@@ -4,12 +4,28 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
  $stateProvider
 
-  .state('vistaBanco', {
+    .state('vistaLogin', {
+
+     url: "/",
+     templateUrl: "html/login.html",
+
+     controller: "loginCtrl as login"
+   })
+
+    .state('vistaBusqueda', {
+
+     url: "/busqueda",
+     templateUrl: "html/busquedaWindows.html",
+
+     controller: "busquedaCtrl as busquedaPoi"
+   })
+
+    .state('vistaBanco', {
 
      url: "/",
 
      // templateUrl: "partials/banco.html",
-     templateUrl: "banco.html",
+     templateUrl: "html/banco.html",
 
      controller: "BancoController as bancoCtrl"
    })

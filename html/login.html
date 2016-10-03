@@ -1,0 +1,48 @@
+  <div class="container">
+            <form name="loginForm" ng-submit="login.validarUser(loginForm)" class="form-horizontal">
+                <div>
+                    <div class="alert alert-danger" ng-show="login.errorMessage">
+                    {{login.errorMessage}}
+                </div>
+                </div>
+
+              <h4 class="card-title"><b>Login Usuario POI</b></h4>
+              <br>
+              <div class="row">
+              <div class="col-sm-6">
+                <div class="md-form form-group">
+                     <i class="fa fa-rebel prefix animated pulse infinite"></i>
+                  <input type="text" class="form-control validate" ng-model="login.user">
+                  <label for="form91" data-error="wrong" data-success="right">Escribe tu usuario</label>
+                </div>
+               </div>           
+              </div>
+            <br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="md-form form-group">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" class="form-control validate" ng-model="login.pass">
+                    <label for="form92" data-error="wrong" data-success="right">Escribe tu password</label>
+                  </div>
+                </div>
+              </div>
+            <br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="text-danger" id="lblError"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <button type="submit" class="btn btn-primary"><i class="fa  fa-check " aria-hidden="true"></i>  Aceptar</button>
+                  <button id="Cancelar" class="btn btn-info" autofocus="true"><i class="fa fa-close" aria-hidden="true"></i>  Cancelar</button>
+                </div>
+              </div>            
+            </form>                           
+  </div>
+
+
+
+
+
