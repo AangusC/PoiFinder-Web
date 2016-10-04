@@ -2,7 +2,7 @@
 'use strict';
 var poiApp = angular.module('poiApp', ['ui.router']);
 
-poiApp.controller('loginCtrl', function() {
+poiApp.controller('loginCtrl', function($state) {
     var self=this;
     self.user="";
     self.pass="";
@@ -16,7 +16,7 @@ poiApp.controller('loginCtrl', function() {
         
             if (self.usuario.esPasswordValida(self.pass)) {
                $state.go("vistaBusqueda");
-               // window.location = "busquedaWindows.html";
+                //window.location = "busquedaWindows.html";
             }else{
                 throw "Password Incorrecto.";
             }    
