@@ -37,8 +37,9 @@ poiApp.controller('busquedaCtrl', function (RepoPois) {
 
     self.buscar = function() {
             self.filtroActual = self.textoBusqueda
-       
     };
+
+
 
 
 
