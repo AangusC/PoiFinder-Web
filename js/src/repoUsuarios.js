@@ -1,4 +1,4 @@
-function RepoUsuarios(){
+poiApp.service("RepoUsuarios",function(){
     var self = this;
     
     self.usuarios = [
@@ -23,5 +23,6 @@ function RepoUsuarios(){
              throw "El usuario ingresado no existe.";
         }
         
-    }
-};
+    };
+});
+

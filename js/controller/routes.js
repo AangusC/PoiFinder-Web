@@ -8,7 +8,6 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
      url: "/",
      templateUrl: "html/login.html",
-
      controller: "loginCtrl as login"
    })
 
@@ -16,28 +15,24 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
      url: "/busqueda",
      templateUrl: "html/busquedaWindows.html",
-
      controller: "busquedaCtrl as busquedaPoi"
    })
 
     .state('vistaBanco', {
 
-     url: "/",
+     url: "/banco",
 
      // templateUrl: "partials/banco.html",
      templateUrl: "html/banco.html",
-
      controller: "BancoController as bancoCtrl"
    })
 
 
     .state('vistaCgp', {
 
-     url: "/",
-
+     url: "/cgp",
      // templateUrl: "partials/banco.html",
      templateUrl: "cgp.html",
-
      controller: "CgpController as cgpCtrl"
    })
 
@@ -45,11 +40,9 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
   .state('vistaColectivo', {
 
-     url: "/",
-
+     url: "/colectivo",
      // templateUrl: "partials/banco.html",
      templateUrl: "colectivo.html",
-
      controller: "ColectivoController as `colectivoCtrl"
    })
 
@@ -57,11 +50,9 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
   .state('vistaLocal', {
 
-     url: "/",
-
+     url: "/local",
      // templateUrl: "partials/banco.html",
      templateUrl: "local.html",
-
      controller: "LocalController as localCtrl"
    })
 

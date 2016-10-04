@@ -2,21 +2,18 @@
 'use strict';
 var poiApp = angular.module('poiApp', ['ui.router']);
 
-poiApp.controller('loginCtrl', function($state) {
+poiApp.controller('loginCtrl', function($state,RepoUsuarios){
     var self=this;
     self.user="";
     self.pass="";
-    
-    self.repoUsuarios = new RepoUsuarios();    
-        
+   
     self.validarUser= function(loginForm){
         
          try {
-            self.usuario = self.repoUsuarios.getUsuario(self.user);
-        
+            self.usuario = RepoUsuarios.getUsuario(self.user);
+            
             if (self.usuario.esPasswordValida(self.pass)) {
-               $state.go("vistaBusqueda");
-                //window.location = "busquedaWindows.html";
+               $state.go("vistaBusqueda");                
             }else{
                 throw "Password Incorrecto.";
             }    
@@ -28,32 +25,19 @@ poiApp.controller('loginCtrl', function($state) {
 });
 
 
-
-// Es un framework de routing muy complejo y poderoso. Trabaja a través de estados, los cuales determinan la vista a utilizar. Permite trabajar con vistas anidadas y múltiples.
-
-// poiApp.controller('busquedaCtrl', function ('ui.router') {
     
-poiApp.controller('busquedaCtrl', function () {
+poiApp.controller('busquedaCtrl', function (RepoPois) {
     var self=this;
     self.textoBusqueda = '';  
     self.filtroActual = '';
 
-    self.listaPios = [
-        {
-            "nombre" : "Galicia",
-            "direccion" : "Puerredon",
-            "cercania" : "No",
-            "favorito" : "★"
-        },
-        { "nombre" : "CGP 1", "direccion" : "Lavalleja 582", "cercania" : "No", "favorito" : ""},
-        { "nombre" : "Santander", "direccion" : "Cochabamba 2219", "cercania" : "No", "favorito" : "★"},
-        { "nombre" : "Linea 86", "direccion" : "Calle falsa 123", "cercania" : "Si", "favorito" : "★"}
-    ];
+    self.listaPios = RepoPois.pois;
 
     
 
     self.buscar = function() {
-        self.filtroActual = self.textoBusqueda
+            self.filtroActual = self.textoBusqueda
+       
     };
 
 
