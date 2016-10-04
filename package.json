@@ -13,10 +13,11 @@
     "url": "https://github.com/AangusC/PoiFinder-Web.git"
   },
   "dependencies": {
-    
-    "angular-animate": "^1.4.4",
-    "angular-ui-router": "^0.2.15",    
-    "http-server": "^0.8.0",   
-    "underscore": "^1.8.3"
+    "angular": ">= 1.5.0",
+    "angular-animate": ">=1.4.4",
+    "angular-ui-router": ">=0.2.15",    
+    "http-server": ">=0.8.0",   
+    "underscore": ">=1.8.3",
+    "mdbootstrap": ">=4.1.1"
   }
 }
