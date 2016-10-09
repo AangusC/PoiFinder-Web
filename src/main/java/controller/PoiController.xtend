@@ -20,7 +20,7 @@ class PoiController {
 
 	@Get("/pois")
 	def Result tareas() {
-		val pois = Repo.instance.allInstances //tareasPendientes
+		val pois = Repo.instance.allInstances 
 		response.contentType = ContentType.APPLICATION_JSON
 		ok(pois.toJson)
 	}

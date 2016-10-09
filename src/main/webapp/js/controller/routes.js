@@ -6,11 +6,10 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
     .state('login', {
 
-     url: "/login",
+     url:"/login",
      templateUrl: "html/login.html",
      controller: "loginCtrl as login",
-     data: {},
-     resolve: {}
+     
    })
 
     .state('Busqueda', {

@@ -1,8 +1,8 @@
-poiApp.service("RepoUsuarios",function(){
+poiApp.service("RepoUsuarios",function($http){
     var self = this;
     
     this.findAll = function(callback){
-        $http.get("/usuarios").then(callback);
+        $http.get('/usuarios').then(callback);
     }
 
 

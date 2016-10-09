@@ -18,7 +18,7 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
             self.usuario = RepoUsuarios.getUsuario(self.user);
             
             if (self.usuario.esPasswordValida(self.pass)) {
-               $state.go("vistaBusqueda");                
+               $state.go("Busqueda");                
             }else{
                 throw "Password Incorrecto.";
             }    
@@ -41,33 +41,6 @@ poiApp.controller('busquedaCtrl', function (RepoPois) {
 
     this.getPois();
 
-    
+    }
 
-   
-    };
-
-
-
-
-
-
-/*poiApp.controller('BancoController', function () {
-
-    };
-
-
-poiApp.controller('CgpController', function () {
-
-    };
-
-
-poiApp.controller('ColectivoController', function () {
-
-    };
-
-
- poiApp.controller('LocalController', function () {
-
-    };*/
-
-});
+);
