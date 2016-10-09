@@ -1,0 +1,12 @@
+/* YOUR CUSTOM STYLES */
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    text-align: left;
+    background-color: orange;
+    color: black;
+}

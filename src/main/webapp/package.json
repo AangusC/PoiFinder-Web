@@ -1,0 +1,23 @@
+{
+  "name": "conversor-ui-angular",
+  "description": "Conversor AngularJS",
+  "author": "",
+  "license": "",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server  -p 1111 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AangusC/PoiFinder-Web.git"
+  },
+  "dependencies": {
+    "angular": ">= 1.5.0",
+    "angular-animate": ">=1.4.4",
+    "angular-ui-router": ">=0.2.15",    
+    "http-server": ">=0.8.0",   
+    "underscore": ">=1.8.3",
+    "mdbootstrap": ">=4.1.1"
+  }
+}
