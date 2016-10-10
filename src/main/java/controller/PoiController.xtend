@@ -19,7 +19,7 @@ class PoiController {
 	extension JSONPropertyUtils = new JSONPropertyUtils
 
 	@Get("/pois")
-	def Result tareas() {
+	def Result pois() {
 		val pois = Repo.instance.allInstances 
 		response.contentType = ContentType.APPLICATION_JSON
 		ok(pois.toJson)
