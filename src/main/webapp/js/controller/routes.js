@@ -44,7 +44,7 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
      url: "/colectivo",
      // templateUrl: "partials/banco.html",
      templateUrl: "colectivo.html",
-     controller: "ColectivoController as `colectivoCtrl"
+     controller: "ColectivoController as colectivoCtrl"
    })
 
 

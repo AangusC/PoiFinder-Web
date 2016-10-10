@@ -7,15 +7,13 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
     self.user="";
     self.pass="";
     
-    this.getUsuarios = function() {
-        RepoUsuarios.findAll(function(response) {
-            self.usuarios= response.data;
-        });
-    }   
+
     self.validarUser= function(loginForm){
-        $state.go("Busqueda");
-        
-         /*try {
+        self.loginForm = loginForm;
+        RepoUsuarios.findAll(self.validarUserCallback);
+    };     
+    self.validarUserCallback= function(){
+        try {
             self.usuario = RepoUsuarios.getUsuario(self.user);
             
             if (self.usuario.esPasswordValida(self.pass)) {
@@ -24,10 +22,11 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
                 throw "Password Incorrecto.";
             }    
          }catch (exception) {
-            loginForm.$invalid = true;
-            this.errorMessage = exception;
-        } */            
+            self.loginForm.$invalid = true;
+            self.errorMessage = exception;
+        }            
     };       
+
 });
 
 
