@@ -8,13 +8,14 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
     self.pass="";
     
     this.getUsuarios = function() {
-        tareasService.findAll(function(response) {
-            self.poi = response.data;
+        RepoUsuarios.findAll(function(response) {
+            self.usuarios= response.data;
         });
     }   
     self.validarUser= function(loginForm){
+        $state.go("Busqueda");
         
-         try {
+         /*try {
             self.usuario = RepoUsuarios.getUsuario(self.user);
             
             if (self.usuario.esPasswordValida(self.pass)) {
@@ -25,7 +26,7 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
          }catch (exception) {
             loginForm.$invalid = true;
             this.errorMessage = exception;
-        }             
+        } */            
     };       
 });
 
@@ -33,14 +34,20 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
     
 poiApp.controller('busquedaCtrl', function (RepoPois) {
    var self=this;
+   self.textoBusqueda = '';  
+    self.filtroActual = '';
+
    this.getPois = function() {
-        tareasService.findAll(function(response) {
-            self.poi = response.data;
+        RepoPois.findAll(function(response) {
+            self.pois = response.data;
         });
     }   
 
     this.getPois();
 
+    self.buscar = function() {
+            self.filtroActual = self.textoBusqueda
+    };
     }
 
 );
