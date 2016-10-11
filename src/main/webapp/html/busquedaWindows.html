@@ -35,11 +35,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr data-ng-repeat="pois in busquedaPoi.pois | filter:busquedaPoi.textoBusqueda">
-          <td>{{pois.nombre}}</td>
-          <td>{{pois.direccion}}</td>
-          <td>{{pois.cercania}}</td>
-          <td>{{pois.favorito}}</td>          
+        <tr data-ng-repeat="poi in busquedaPoi.pois | filter:busquedaPoi.textoBusqueda"  data-ng-click="busquedaPoi.verDetalle(poi)">
+          <td>{{poi.nombre}}</td>
+          <td>{{poi.direccion}}</td>
+          <td>{{poi.cercania}}</td>
+          <td>{{poi.favorito}}</td>          
         </tr>
         </tbody>         
     </table>

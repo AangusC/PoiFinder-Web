@@ -31,7 +31,7 @@ poiApp.controller('loginCtrl', function($state,RepoUsuarios){
 
 
     
-poiApp.controller('busquedaCtrl', function (RepoPois) {
+poiApp.controller('busquedaCtrl', function ($state,RepoPois) {
    var self=this;
    self.textoBusqueda = '';  
     self.filtroActual = '';
@@ -47,6 +47,14 @@ poiApp.controller('busquedaCtrl', function (RepoPois) {
     self.buscar = function() {
             self.filtroActual = self.textoBusqueda
     };
-    }
+    
+    self.verDetalle = function(poi) {
+        $state.go("vistaColectivo");  
+    };
+});
 
-);
+    
+poiApp.controller('ColectivoController', function ($state,RepoPois) {
+   var self=this;
+
+});

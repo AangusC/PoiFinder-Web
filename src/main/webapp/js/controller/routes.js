@@ -33,7 +33,7 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
      url: "/cgp",
      // templateUrl: "partials/banco.html",
-     templateUrl: "cgp.html",
+     templateUrl: "html/cgp.html",
      controller: "CgpController as cgpCtrl"
    })
 
@@ -43,7 +43,7 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
      url: "/colectivo",
      // templateUrl: "partials/banco.html",
-     templateUrl: "colectivo.html",
+     templateUrl: "html/colectivo.html",
      controller: "ColectivoController as colectivoCtrl"
    })
 
@@ -53,7 +53,7 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
      url: "/local",
      // templateUrl: "partials/banco.html",
-     templateUrl: "local.html",
+     templateUrl: "html/local.html",
      controller: "LocalController as localCtrl"
    })
 
