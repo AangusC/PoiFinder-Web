@@ -24,6 +24,18 @@ class PoiController {
 		response.contentType = ContentType.APPLICATION_JSON
 		ok(pois.toJson)
 	}
+	
+	@Get('/pois/:id')
+	def Result poiById() {
+		response.contentType = "application/json"
+		val iId = Integer.valueOf(id)
+		try {
+			ok(Repo.instance.searchById(iId).toJson)
+		} catch (UserException e) {
+			notFound("No existe la tarea con id " + id + "");
+		}
+	}
+	
 	@Get("/usuarios")
 	def Result usuarios() {
 		val usuarios = RepoUsuario.instance.allInstances
