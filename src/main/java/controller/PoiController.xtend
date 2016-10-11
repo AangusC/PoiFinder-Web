@@ -12,6 +12,8 @@ import org.uqbar.xtrest.json.JSONUtils
 import repos.Repo
 import xtrest.JSONPropertyUtils
 import repos.RepoUsuario
+import domain.Poi
+import domain.Banco
 
 @Controller
 class PoiController {
@@ -79,6 +81,19 @@ class PoiController {
 		}
 	}
 	
+	@Put("/usuarios/:id/AddFavorito")
+	def Result usuarioAddFavorito(@Body String body) {
+		try {
+			val usuario = RepoUsuario.instance.searchById(Integer.valueOf(id))
+			val idPoi = body.fromJson(Integer)
+			usuario.agregarAFavoritos(Repo.instance.searchById(idPoi))
+			//ok(usuario.toJson)
+			ok('{ "status" : "OK" }')
+
+		} catch (UserException e) {
+			badRequest("No existe el poi");
+		}
+	}
 	
 
 	def static void main(String[] args) {
