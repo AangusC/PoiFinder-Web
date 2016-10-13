@@ -1,5 +1,6 @@
 package controller
 
+import errors.BusinessException
 import org.uqbar.commons.model.UserException
 import org.uqbar.xtrest.api.Result
 import org.uqbar.xtrest.api.XTRest
@@ -10,10 +11,8 @@ import org.uqbar.xtrest.api.annotation.Put
 import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.json.JSONUtils
 import repos.Repo
-import xtrest.JSONPropertyUtils
 import repos.RepoUsuario
-import domain.Poi
-import domain.Banco
+import xtrest.JSONPropertyUtils
 
 @Controller
 class PoiController {
@@ -54,10 +53,10 @@ class PoiController {
 			if (usuario != null) {
 				ok(usuario.toJson)
 			}else {
-				notFound("No existe el usuario " + username + "");
+				notFound((" No existe el usuario " + username + "").toJson);
 			}
 		} catch (UserException e) {
-			notFound("No existe el usuario " + username + "");
+			notFound(("No existe el usuario " + username + "").toJson);
 		}
 	}
 	
@@ -71,10 +70,10 @@ class PoiController {
 				if (usuario.password == password) {
 					ok(usuario.toJson)
 				}else {
-					notFound("Password incorrecta");
+					ok((new BusinessException("Password incorrecta")).toJson);
 				}
 			}else {
-				notFound("No existe el usuario " + username + "");
+				ok((new BusinessException("No existe el usuario " + username )).toJson);
 			}
 		} catch (UserException e) {
 			notFound("No existe el usuario " + username + "");

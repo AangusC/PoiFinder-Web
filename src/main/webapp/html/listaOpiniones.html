@@ -1,0 +1,22 @@
+<div class="container">
+    <p class="card-text">Opiniones:</p>
+
+    <div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th id="enRojo">Usuario {{poiCtrl.poi.nombre}}</th>
+                    <th>Comentario</th>
+                    <th>Calificaci&oacute;n</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="opinion in poiCtrl.poi.opiniones">
+                    <td>{{opinion.usuario}}</td>
+                    <td>{{opinion.comentario}}</td>
+                    <td>{{opinion.score}}</td>      
+                </tr>
+            </tbody>         
+        </table>
+	</div>
+</div>

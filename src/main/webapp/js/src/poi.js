@@ -17,7 +17,13 @@ var Poi = klass(function (myJson) {
   })
   .methods({
  	guardarOpinion: function(texto, user, puntaje) {
-		//opiniones.removeIf([o|o.user == user])
+		var idx=this.opiniones.indexOf(
+			function (opinion) { 
+    			return opinion.usuario == user;
+			});
+		if (idx > -1) {
+			this.opiniones.splice(idx, 1);
+		}
 		var op = new Opinion(texto, user, puntaje);
 		this.opiniones.push(op);
 	},
@@ -33,8 +39,11 @@ var Poi = klass(function (myJson) {
         return pun;
 	},
 	getOpinion: function(user){
-		var tmp=this.opiniones.filter(op=> op.usuario.nombre == user.nombre);
-		return tmp[0];
+		var tmp=this.opiniones.find(
+			function (opinion) { 
+    			return opinion.usuario == user;
+			});
+		return tmp;
 	},
 	estaCercaDe: function (point) {
 		return  this.coordenada.distance(point) <= this.distanciaMinCercania;

@@ -57,5 +57,23 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
      controller: "LocalController as localCtrl"
    })
 
+ .state('vistaPoi', {
+    url: "/poi/:id",
+    templateUrl: "html/colectivo.html",
+    controller: "PoiController",
+    controllerAs: "poiCtrl",
+    resolve: {
+      poi: function (RepoPois, $stateParams) {
+        var self=this;
+        var jsonPoi = RepoPois.pois.find(function (poi) { 
+    			return poi.id == $stateParams.id;
+			  });
+        var poi = new Poi(jsonPoi);
+        poi.guardarOpinion("me gusta mucho", "Miguel", 5);
+        poi.guardarOpinion("me gusta maso", "papa", 3);
 
+        return poi;
+      }
+    }
+  })
 });

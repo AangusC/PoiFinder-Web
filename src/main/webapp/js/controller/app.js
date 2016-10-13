@@ -2,31 +2,26 @@
 'use strict';
 var poiApp = angular.module('poiApp', ['ui.router']);
 
-poiApp.controller('loginCtrl', function($state,RepoUsuarios){
+poiApp.controller('loginCtrl', function($rootScope,$state,RepoUsuarios){
     var self=this;
     self.user="";
     self.pass="";
     
-
     self.validarUser= function(loginForm){
         self.loginForm = loginForm;
-        RepoUsuarios.findAll(self.validarUserCallback);
-    };     
-    self.validarUserCallback= function(){
-        try {
-            self.usuario = RepoUsuarios.getUsuario(self.user);
-            
-            if (self.usuario.esPasswordValida(self.pass)) {
-               $state.go("Busqueda");                
-            }else{
-                throw "Password Incorrecto.";
-            }    
-         }catch (exception) {
-            self.loginForm.$invalid = true;
-            self.errorMessage = exception;
-        }            
-    };       
-
+        RepoUsuarios.validarUsuario(self.user, self.pass, 
+            function(response){
+                if (response.data.message != undefined) {
+                    self.loginForm.$invalid = true;
+                    self.errorMessage = response.data.message;
+                } else {
+                    var usuario = new Usuario(response.data.nombre, response.data.password);
+                    usuario.favoritos = response.data.favoritos;
+                    $rootScope.usuarioLogueado = usuario;
+                    $state.go("Busqueda");              
+                }  
+            });        
+    };
 });
 
 
@@ -39,6 +34,7 @@ poiApp.controller('busquedaCtrl', function ($state,RepoPois) {
    this.getPois = function() {
         RepoPois.findAll(function(response) {
             self.pois = response.data;
+            RepoPois.pois = response.data;
         });
     }   
 
@@ -49,7 +45,7 @@ poiApp.controller('busquedaCtrl', function ($state,RepoPois) {
     };
     
     self.verDetalle = function(poi) {
-        $state.go("vistaColectivo");  
+        $state.go("vistaPoi", {id: poi.id});  
     };
 });
 
@@ -57,4 +53,14 @@ poiApp.controller('busquedaCtrl', function ($state,RepoPois) {
 poiApp.controller('ColectivoController', function ($state,RepoPois) {
    var self=this;
 
+});
+
+poiApp.controller('PoiController', function ($rootScope, $state, poi, RepoUsuarios) {
+   var self=this;
+   self.poi = poi;
+   self.miOpinion = poi.getOpinion($rootScope.usuarioLogueado.nombre);
+   self.puntajeValoresValidos = [1,2,3,4,5];
+   self.enviarOpinion = function() {
+       self.guardarOpinion(self.miOpinion.comentario, $rootScope.usuarioLogueado.nombre, self.miOpinion.score);
+   };
 });

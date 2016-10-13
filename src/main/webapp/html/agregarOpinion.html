@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-title">Tu Opini&oacute;n</div>
+    <div class="col-md-9">
+        <input type="text" ng-model="poiCtrl.miOpinion.comentario" placeholder="Ingrese termino de busqueda" class="form-control validate">
+    </div>
+    <div class="col-md-1">
+        <select ng-model="poiCtrl.miOpinion.score" ng-options="o as o for o in poiCtrl.puntajeValoresValidos">    
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button id="Enviar" class="btn btn-primary" ng-click="poiCtrl.enviarOpinion"><i class="fa  fa-check " aria-hidden="true"></i>Enviar</button>
+    </div>
+</div>		

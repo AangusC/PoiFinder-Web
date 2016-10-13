@@ -1,7 +1,7 @@
 poiApp.service("RepoUsuarios",function($http){
     var self = this;
     
-    this.findAll = function(callback){
+    self.findAll = function(callback){
         $http.get('/usuarios').then(function(response) {
             self.usuarios= response.data;
         }).then(callback);
@@ -28,5 +28,10 @@ poiApp.service("RepoUsuarios",function($http){
         }
         
     };
+
+    self.validarUsuario = function(usuario, password, callback){
+        $http.get('/usuarios/'+usuario+'&'+password).then(callback);
+    }
+
 });
 
