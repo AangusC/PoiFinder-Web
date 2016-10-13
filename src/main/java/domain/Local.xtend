@@ -14,6 +14,7 @@ class Local extends Poi {
 	List<String> palabrasClaves = new ArrayList
 
 	new(Point coordenadas, double minimaDistancia) {
+		
 		coordenada = coordenadas
 		distanciaMinCercania = minimaDistancia
 	}

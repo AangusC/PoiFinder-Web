@@ -1,5 +1,6 @@
 
 var Poi = klass(function (myJson) {
+		this.id = myJson.id || 0;
 		this.nombre = myJson.nombre || "";
 		this.coordenada = myJson.coordenada || "";
 		this.horarios = myJson.horario || new Horario(0,0,0,0);
@@ -10,6 +11,10 @@ var Poi = klass(function (myJson) {
 		this.diasAtencion = myJson.dias || ["lunes","martes","miercoles","jueves","viernes"];
 		this.claves = myJson.claves ||"";
 		this.opiniones = [];
+		for(var i = 0, len = myJson.opiniones.length; i < len; i++) {
+			var op = new Opinion(myJson.opiniones[i].coment, myJson.opiniones[i].user.nombre, myJson.opiniones[i].puntaje);
+			this.opiniones.push(op);
+		}
 })
   .statics({
     head: ':)',
@@ -17,10 +22,20 @@ var Poi = klass(function (myJson) {
   })
   .methods({
  	guardarOpinion: function(texto, user, puntaje) {
-		var idx=this.opiniones.indexOf(
+		/*var idx=this.opiniones.indexOf(
 			function (opinion) { 
     			return opinion.usuario == user;
 			});
+			
+		var idx = this.opiniones.map(function(o) { return e.usuario; }).indexOf(user);
+		*/
+		var idx = -1;
+		for(var i = 0, len = this.opiniones.length; i < len; i++) {
+			if (this.opiniones[i].usuario === user) {
+				idx = i;
+				break;
+			}
+		}
 		if (idx > -1) {
 			this.opiniones.splice(idx, 1);
 		}

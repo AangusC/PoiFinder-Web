@@ -29,13 +29,18 @@ poiApp.controller('loginCtrl', function($rootScope,$state,RepoUsuarios){
 poiApp.controller('busquedaCtrl', function ($state,RepoPois) {
    var self=this;
    self.textoBusqueda = '';  
-    self.filtroActual = '';
+   self.filtroActual = '';
+   self.pois = [];
 
    this.getPois = function() {
-        RepoPois.findAll(function(response) {
-            self.pois = response.data;
-            RepoPois.pois = response.data;
-        });
+       if (RepoPois.pois.length == 0) {
+            RepoPois.findAll(function(response) {
+                self.pois = [];
+                self.pois = RepoPois.pois;
+            });
+        } else {
+            self.pois = RepoPois.pois;
+        }
     }   
 
     this.getPois();
@@ -61,6 +66,7 @@ poiApp.controller('PoiController', function ($rootScope, $state, poi, RepoUsuari
    self.miOpinion = poi.getOpinion($rootScope.usuarioLogueado.nombre);
    self.puntajeValoresValidos = [1,2,3,4,5];
    self.enviarOpinion = function() {
-       self.guardarOpinion(self.miOpinion.comentario, $rootScope.usuarioLogueado.nombre, self.miOpinion.score);
+       self.poi.guardarOpinion(self.miOpinion.comentario, $rootScope.usuarioLogueado.nombre, self.miOpinion.score);
+       self.miOpinion = poi.getOpinion($rootScope.usuarioLogueado.nombre);
    };
 });

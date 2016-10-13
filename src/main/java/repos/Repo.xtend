@@ -1,17 +1,17 @@
 package repos
 
-import java.util.ArrayList
+import domain.BuilderPoi
+import domain.Comuna
+import domain.Horario
+import domain.Poi
+import domain.Servicio
+import domain.Usuario
+import java.util.Arrays
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.CollectionBasedRepo
 import org.uqbar.commons.utils.Observable
-import domain.Poi
 import org.uqbar.geodds.Point
-import domain.Comuna
-import java.util.Arrays
-import domain.Servicio
-import domain.Horario
-import domain.BuilderPoi
 
 @Observable
 @Accessors
@@ -82,6 +82,10 @@ class Repo extends CollectionBasedRepo<Poi> {
 			.crearCgp(comuna2,vertice3comuna2, "Flores", "Perez, Ramiro", "Esmeralda 4459", " 4235-8954 / 7658-7147", servicioB)
 			.build
 		this.create(listaPois)
+		
+		var pp =listaPois.get(0).guardarOpinion("Ta joya", new Usuario("Miguel","pp","pp"), 3);
+		listaPois.get(0).guardarOpinion("Masomeno", new Usuario("Ruben","a","a"), 2);
+		listaPois.get(0).guardarOpinion("Ta bom", new Usuario("Aangus","qwe","qwe"), 4);
 		
 	}
 	def create(List<Poi> iop) {

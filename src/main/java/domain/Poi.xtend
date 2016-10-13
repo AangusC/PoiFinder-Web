@@ -16,6 +16,7 @@ abstract class Poi extends Entity {
 	String direccion
 	int numero
 	Horario horarios
+	String tipo
 	Point coordenada
 	double distanciaMinCercania
 	List<String> diasAtencion = newArrayList
