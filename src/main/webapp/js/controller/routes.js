@@ -64,13 +64,9 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
     controllerAs: "poiCtrl",
     resolve: {
       poi: function (RepoPois, $stateParams) {
-        var self=this;
-        var jsonPoi = RepoPois.pois.find(function (poi) { 
+        var poi = RepoPois.pois.find(function (poi) { 
     			return poi.id == $stateParams.id;
 			  });
-        var poi = new Poi(jsonPoi);
-        poi.guardarOpinion("me gusta mucho", "Miguel", 5);
-        poi.guardarOpinion("me gusta maso", "papa", 3);
 
         return poi;
       }
