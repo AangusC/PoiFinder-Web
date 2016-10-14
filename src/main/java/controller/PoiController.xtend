@@ -13,6 +13,7 @@ import org.uqbar.xtrest.json.JSONUtils
 import repos.Repo
 import repos.RepoUsuario
 import xtrest.JSONPropertyUtils
+import domain.Opinion
 
 @Controller
 class PoiController {
@@ -80,13 +81,27 @@ class PoiController {
 		}
 	}
 	
-	@Put("/usuarios/:id/AddFavorito")
+	@Put("/usuarios/:nombre/AddFavorito")
 	def Result usuarioAddFavorito(@Body String body) {
 		try {
-			val usuario = RepoUsuario.instance.searchById(Integer.valueOf(id))
+			val usuarios = RepoUsuario.instance.allInstances
+			val usuario = usuarios.findFirst[usr| usr.nombre == nombre ]
 			val idPoi = body.fromJson(Integer)
 			usuario.agregarAFavoritos(Repo.instance.searchById(idPoi))
 			//ok(usuario.toJson)
+			ok('{ "status" : "OK" }')
+
+		} catch (UserException e) {
+			badRequest("No existe el poi");
+		}
+	}
+	
+	@Put("/pois/:id/AddOpinion")
+	def Result poisAddOpinion(@Body String body) {
+		try {
+			val opinion = body.fromJson(Opinion)
+			val poi = Repo.instance.searchById(Integer.valueOf(id))
+			poi.guardarOpinion(opinion.coment, opinion.user, opinion.puntaje)
 			ok('{ "status" : "OK" }')
 
 		} catch (UserException e) {

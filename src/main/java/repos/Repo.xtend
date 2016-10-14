@@ -83,9 +83,9 @@ class Repo extends CollectionBasedRepo<Poi> {
 			.build
 		this.create(listaPois)
 		
-		var pp =listaPois.get(0).guardarOpinion("Ta joya", new Usuario("Miguel","pp","pp"), 3);
-		listaPois.get(0).guardarOpinion("Masomeno", new Usuario("Ruben","a","a"), 2);
-		listaPois.get(0).guardarOpinion("Ta bom", new Usuario("Aangus","qwe","qwe"), 4);
+		var pp =listaPois.get(0).guardarOpinion("Ta joya", new Usuario("Malcom","pp","pp"), 3);
+		listaPois.get(0).guardarOpinion("Masomeno", new Usuario("Angus","a","a"), 2);
+		listaPois.get(0).guardarOpinion("Ta bom", new Usuario("Bon","qwe","qwe"), 4);
 		
 	}
 	def create(List<Poi> iop) {

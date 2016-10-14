@@ -10,6 +10,7 @@ var Poi = klass(function (myJson) {
 		this.numero = myJson.numero || 0;
 		this.diasAtencion = myJson.dias || ["lunes","martes","miercoles","jueves","viernes"];
 		this.claves = myJson.claves ||"";
+		this.tipo = myJson.tipo || "";
 		this.opiniones = [];
 		for(var i = 0, len = myJson.opiniones.length; i < len; i++) {
 			var op = new Opinion(myJson.opiniones[i].coment, myJson.opiniones[i].user.nombre, myJson.opiniones[i].puntaje);

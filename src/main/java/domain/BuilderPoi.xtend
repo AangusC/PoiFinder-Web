@@ -53,14 +53,14 @@ class BuilderPoi
 	def crearCgp(int _numero,Point _coordenada,String barrios,String _director,String calle,String _telefono,List<String> _servicio)
 	{
 		var Cgp cg = new Cgp(_numero, _coordenada, barrios, _director, calle, _telefono, _servicio)
-		cg.tipo = "local"
+		cg.tipo = "cgp"
 		lista.add(cg)
 		this
 	}
 	
 	def crearCgp(Comuna _numero,Point _coordenada,String barrios,String _director,String calle,String _telefono,List<Servicio> _servicio){
 		var Cgp cg = new Cgp(_numero,_coordenada, barrios, _director, calle, _telefono, _servicio)
-		cg.tipo = "local"
+		cg.tipo = "cgp"
 		lista.add(cg)
 		this
 	}

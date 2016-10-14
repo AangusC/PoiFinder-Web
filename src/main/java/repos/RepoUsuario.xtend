@@ -19,10 +19,10 @@ static RepoUsuario repoUsuarios
 	}
 
 	new() {
-		this.create(new Usuario("Miguel","pp","pp"))
-		this.create(new Usuario("Ruben","a","a"))
-		this.create(new Usuario("Aangus","qwe","qwe"))
-		this.create(new Usuario("Marco","polo","nadie"))
+		this.create(new Usuario("Malcom","pp","pp"))
+		this.create(new Usuario("Angus","a","a"))
+		this.create(new Usuario("Brian","qwe","qwe"))
+		this.create(new Usuario("Bon","polo","nadie"))
 	}
 
 	override createExample() {
