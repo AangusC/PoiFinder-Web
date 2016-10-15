@@ -50,6 +50,10 @@ poiApp.controller('busquedaCtrl', function ($state, RepoPois) {
         self.poiSeleccionado = poi;
         //$state.go("vistaPoi", {id: poi.id});  
     };
+    this.cercania = function(poiSelected){
+        return poiSelected.estaCercaDe(new Point(18.787878, 34.567834))
+    }
+
 });
 
 

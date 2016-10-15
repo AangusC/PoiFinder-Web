@@ -31,8 +31,8 @@
 		<tbody>
 			<tr data-ng-repeat="poi in busquedaPoi.pois | filter:busquedaPoi.textoBusqueda as poisFiltrados" data-ng-click="busquedaPoi.verDetalle(poi)">
 				<td>{{poi.nombre}}</td>
-				<td>{{poi.direccion}}</td>
-				<td>{{poi.cercania}}</td>
+				<td>{{poi.direccion}}</td>				
+        		<td ng-bind=busquedaPoi.cercania(poi)></td>
 				<td><i class="fa fa-star" ng-show="poi.favorito"></i></td>
 			</tr>
 		</tbody>

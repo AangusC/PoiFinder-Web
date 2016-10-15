@@ -1,5 +1,10 @@
 var Cgp = Poi.extend(function (op) {
-	this.comuna=op.comuna;
+	var area=[]
+	for(var i = 0, len = op.comuna; i < len; i++){
+		var temp =op.comuna[i];
+		this.area.push(temp);
+	}
+	this.comuna=new Comuna(op.comuna.nombre,area);
 	this.servicios = op.servicio;
 })
   .methods({

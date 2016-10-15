@@ -2,10 +2,11 @@
 var Colectivo = Poi.extend(function (op) {
 	this.nombre= op.nombre  || "";
 	this.paradas= op.paradas  || "";
+	self=this
 })
   .methods({
 	estaCercaDe: function (point) {
-		return this.paradas.some(parada => parada.distance(point) <= 0.1);
+		return _.some(self.paradas, function(parada){parada.distance(point) <= 0.1});
 	},
 	distancia: function(point){
 		var tempa=this.paradas[0].distance(point);

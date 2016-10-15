@@ -2,7 +2,11 @@
 var Poi = klass(function (myJson) {
 		this.id = myJson.id || 0;
 		this.nombre = myJson.nombre || "";
-		this.coordenada = myJson.coordenada || "";
+		if(myJson.coordenada!= null){
+		var x = myJson.coordenada.x;
+		var y = myJson.coordenada.y
+		}		
+		this.coordenada = new Point(x,y) || new Point(0,0);
 		this.horarios = myJson.horario || new Horario(0,0,0,0);
 		this.distanciaMinCercania = myJson.distanciaMinCercania || 0.1;
 		this.direccion = myJson.direccion || "";
