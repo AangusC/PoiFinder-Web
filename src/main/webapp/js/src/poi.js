@@ -72,7 +72,7 @@ var Poi = klass(function (myJson) {
 		return (this.horarios.checkHora(hora, min) && this.diasAtencion.includes(dia))
 	},
 	distancia: function(point) {
-		return coordenada.distancie(point);
+		return parseFloat(Math.round(this.coordenada.distance(point) * 100) / 100).toFixed(2)
 	},
 	matcherXNombre: function(_nombre){
 		nombre.startsWith(_nombre)

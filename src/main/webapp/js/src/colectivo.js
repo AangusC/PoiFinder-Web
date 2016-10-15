@@ -1,7 +1,15 @@
 
 var Colectivo = Poi.extend(function (op) {
 	this.nombre= op.nombre  || "";
-	this.paradas= op.paradas  || "";
+	var paradaJson=[]
+	for(var i = 0, len = op.parada; i < len; i++){
+		var temp =op.parada[i];
+		var tempX = temp.x;
+		var tempY = temp.y;
+		this.paradaJson.push(new Point(tempX,tempY));
+	}
+	this.paradas= paradaJson;
+	console.log(this.paradas)
 	self=this
 })
   .methods({

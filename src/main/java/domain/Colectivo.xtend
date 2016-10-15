@@ -11,7 +11,7 @@ import org.uqbar.geodds.Point
 class Colectivo extends Poi
 {
 	String linea
-	List<Point> parada
+	List<Point> paradas
 	List<String> dias
 	
 
@@ -19,17 +19,17 @@ class Colectivo extends Poi
 	{
 		this.nombre = "Linea "+ nombre
 		linea = nombre.toString
-		parada = paradass
+		paradas = paradass
 	}
 
 	def addParada(double x, double y)
 	{
-		parada.add(Point.and(x, y))
+		paradas.add(Point.and(x, y))
 	}
 
 	override void estaCercaDe(Point point)
 	{
-		estaCerca=(parada.exists[paradas|paradas.distance(point) <= 0.1])	
+		estaCerca=(paradas.exists[paradas|paradas.distance(point) <= 0.1])	
 	}
 
 	override estaAbierto(String nombre, String dia, int hora, int minuto)
@@ -49,10 +49,10 @@ class Colectivo extends Poi
 	{
 	
 		
-		 var double tempa=parada.get(0).distance(point)
-		 for(var int i=1;i<parada.size;i++){
-		 	if(parada.get(i).distance(point)< tempa){
-		 		tempa=parada.get(i).distance(point)
+		 var double tempa=paradas.get(0).distance(point)
+		 for(var int i=1;i<paradas.size;i++){
+		 	if(paradas.get(i).distance(point)< tempa){
+		 		tempa=paradas.get(i).distance(point)
 		 	}
 		 }
 		tempa
