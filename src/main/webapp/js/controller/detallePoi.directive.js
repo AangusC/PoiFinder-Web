@@ -3,8 +3,8 @@ poiApp.directive('detallePoi', detallePoi);
 function detallePoi() {
    var params = {
        restrict: 'EA',
-       template: '<div ng-include="getContentUrl"></div>',
-       //templateUrl: 'html/detallePoi.colectivo.html',
+       //template: '<div ng-include="getContentUrl"></div>',
+       templateUrl: 'html/detallePoi.Main.html',
        controller:'DetallePoiController as poiCtrl',
        scope: {
             poi: '=' 
@@ -45,23 +45,23 @@ poiApp.controller('DetallePoiController', function ($rootScope, $scope, $state, 
                 }
                 self.poi.favorito = valor;
             };
+   self.getParadas = function (poi){
+        return  poi.cantParadas()
+    }
+    self.getDistancia = function(poi){
+        return poi.distancia(new Point(18.787878, 34.567834))
+    }
+    self.getServicios = function(poi){
+        return poi.getServicios()
+      }
+    self.getDireccion = function(poi){
+        return poi.direccion
+      }
+    self.getPoint = function(poi){
+        return poi.getPoints()
+      }
        }
-   }
-    this.getParadas = function (poiSelected){
-        return  poiSelected.cantParadas()
-    }
-    this.getDistancia = function(poiSelected){
-        return poiSelected.distancia(new Point(18.787878, 34.567834))
-    }
-    this.getServicios = function(poiSelected){
-        return poiSelected.getServicios()
-      }
-    this.getDireccion = function(poiSelected){
-        return poiSelected.direccion
-      }
-    this.getPoint = function(poiSelected){
-        return poiSelected.getPoints()
-      }
      
+   }
     
 });

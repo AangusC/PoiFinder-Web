@@ -1,0 +1,85 @@
+<div class="card" >
+    <div class="card-block">
+        <div class="container">
+         <h4 class="card-header">Banco</h4>
+         
+		  	<div class="container">
+				 <div class="row">
+					<div class="col-sm-6">
+						<img src="images/{{poiCtrl.poi.tipo}}.png" class="animated bounce" height="60px;" width="60px;">
+					</div>
+					<div class="col-sm-6">
+						<h4 class="card-title"><b>{{poiCtrl.poi.nombre}}</b> </h4>
+					</div>
+				</div>
+			</div>
+			<div >
+				<br>
+			</div>
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Direccion:</u></p>
+					</div>
+					<div class="col-sm-3">
+						<p ng-bind=poiCtrl.getDireccion(poiCtrl.poi)></p>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Servicios:</u></p>
+					</div>
+					<div class="col-sm-3">
+						<p ng-bind=poiCtrl.getServicios(poiCtrl.poi)></p>
+					</div>
+				</div>
+			</div>
+   
+		   <div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Distancia(Km):</u> </p>
+					</div>
+					<div class="col-sm-3">
+						<p ng-bind=poiCtrl.getDistancia(poiCtrl.poi)></p>
+					</div>
+				</div>
+			</div>
+			
+			<div >
+				<br>
+			</div>
+			
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Calific&aacute;cion general</u></p>
+					</div>
+					<div class="col-sm-3">
+						<p ng-bind=poiCtrl.getPoint(poiCtrl.poi)></p>
+					</div>
+					<div class="col-sm-3">
+						<p class="card-text">Favorito</p>
+					</div>
+					<div class="col-sm-3">
+						<fieldset class="form-group">
+                    	<input type="checkbox" ng-model="poiCtrl.poi.favorito" ng-change="poiCtrl.cambiarFavorito">
+                    	<label for="favorito"></label>
+                		</fieldset>
+					</div>
+				</div>
+			</div>
+
+      </div>
+    </div>
+ <div class="card-block">
+<agregar-opinion></agregar-opinion>
+ </div>
+<lista-opiniones></lista-opiniones>	
+
+</div>
+

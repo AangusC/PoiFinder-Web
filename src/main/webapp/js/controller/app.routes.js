@@ -19,7 +19,7 @@ poiApp.config(function ($stateProvider, $urlRouterProvider) {
 
     .state('vistaPoi', {
       url: "/poi/:id",
-      templateUrl: "html/colectivo.html",
+      templateUrl: "html/detallePoi.Main.html",
       controller: "PoiController",
       controllerAs: "poiCtrl",
       resolve: {
