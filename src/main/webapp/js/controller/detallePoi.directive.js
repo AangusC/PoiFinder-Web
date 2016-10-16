@@ -59,4 +59,9 @@ poiApp.controller('DetallePoiController', function ($rootScope, $scope, $state, 
     this.getDireccion = function(poiSelected){
         return poiSelected.direccion
       }
+    this.getPoint = function(poiSelected){
+        return poiSelected.getPoints()
+      }
+     
+    
 });
