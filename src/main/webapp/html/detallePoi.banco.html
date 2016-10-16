@@ -2,6 +2,7 @@
     <div class="card-block">
         <div class="container">
          <h4 class="card-header">Banco</h4>
+         
 		  	<div class="container">
 				 <div class="row">
 					<div class="col-sm-6">
@@ -16,12 +17,52 @@
 			<div >
 				<br>
 			</div>
-			
+
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Direcci&oacute;n:</u> </p>
+					</div>
+					<div class="col-sm-3">
+						<p class="card-text"><b>{{poiCtrl.poi.direccion}}</u> </p>
+					</div>
+				</div>
+			</div>
 			
 			<div >
 				<br>
 			</div>
-   
+
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Barrio:</u> </p>
+					</div>
+					<div class="col-sm-3">
+						<p class="card-text"><b>{{poiCtrl.poi.barrio}}</u> </p>
+					</div>
+				</div>
+			</div>
+
+			<div >
+				<br>
+			</div>
+
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Servicios:</u> </p>
+					</div>
+					<div class="col-sm-3">
+						<p class="card-text"><u>{{poiCtrl.poi.servicios}}</u> </p>
+					</div>
+				</div>
+			</div>
+
+			<div >
+				<br>
+			</div>
+
 		   <div class="container">
 				 <div class="row">
 					<div class="col-sm-3">
@@ -60,6 +101,7 @@
       </div>
     </div>
  <div class="card-block">
+
 <agregar-opinion></agregar-opinion>
  </div>
 <lista-opiniones></lista-opiniones>	
