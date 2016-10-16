@@ -3,18 +3,10 @@
         <div class="container">
          <h4 class="card-header"><b><img src="images/{{poiCtrl.poi.tipo}}.png" class="animated bounce" height="60px;" width="60px;">{{poiCtrl.poi.nombre}}</b></h4>
 		  				
-			<div class="container">
-				 <div class="row">
-					<div class="col-sm-2">
-						<p class="card-text"><u>Direccion:</u></p>
-					</div>
-					<div class="col-sm-7">
-						<p ng-bind=poiCtrl.getDireccion()></p>
-					</div>
-				</div>
-			</div>
+	
+			<br>
 			<div ng-include="getContentUrl"></div>
-		   
+		   	<br>
 		   <div class="container">
 				 <div class="row">
 					<div class="col-sm-2">
