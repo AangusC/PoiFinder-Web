@@ -45,21 +45,25 @@ poiApp.controller('DetallePoiController', function ($rootScope, $scope, $state, 
                 }
                 self.poi.favorito = valor;
             };
-   self.getParadas = function (poi){
-        return  poi.cantParadas()
-    }
-    self.getDistancia = function(poi){
-        return poi.distancia(new Point(18.787878, 34.567834))
-    }
-    self.getServicios = function(poi){
-        return poi.getServicios()
-      }
-    self.getDireccion = function(poi){
-        return poi.direccion
-      }
-    self.getPoint = function(poi){
-        return poi.getPoints()
-      }
+            self.getParadas = function (){
+                  if(poi.tipo=="colectivo"){
+                      return  poi.cantParadas()                  
+                  }
+            }
+            self.getDistancia = function(){
+                return poi.distancia(new Point(18.787878, 34.567834))
+            }
+            self.getServicios = function(){
+              if(poi.tipo == "cgp" || poi.tipo =="banco"){               
+                  return poi.getServicios()
+                  }
+              }
+            self.getDireccion = function(){
+                return poi.direccion
+              }
+            self.getPoint = function(){
+                return poi.getPoints()
+              }
        }
      
    }
