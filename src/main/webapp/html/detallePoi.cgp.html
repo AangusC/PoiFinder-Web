@@ -1,23 +1,22 @@
-			<div class="container">
-				 <div class="row">
-					<div class="col-sm-12">
-						<table  class="table table-sm">
-							<thead>
-								<tr>
-									<th >Servicios</th>
-									<th >Horario</th>
-									<th >Dias atencion</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr data-ng-repeat="servicios in poiCtrl.poi.servicios">
-									<td>{{servicios.nombre}}</td>
-									<td>{{servicios.horarios}}</td>		
-					        		<td>{{servicios.diasAtencion}}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			
+<div class="container">
+	 <div class="row">
+		<div class="col-sm-12">
+			<table  class="table table-sm">
+				<thead>
+					<tr>
+						<th >Servicios</th>
+						<th >Horario</th>
+						<th >Dias atencion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="servicios in poiCtrl.poi.servicios">
+						<td>{{servicios.nombre}}</td>
+						<td>{{servicios.horarios}}</td>		
+		        		<td>{{servicios.diasAtencion}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,74 +1,49 @@
 <div class="card" >
     <div class="card-block">
         <div class="container">
-         <h4 class="card-header">{{poiCtrl.poi.nombre}}</h4>
-		  	<div class="container">
-				 <div class="row">
-					<div class="col-sm-6">
-						<img src="images/{{poiCtrl.poi.tipo}}.png" class="animated bounce" height="60px;" width="60px;">
-					</div>
-					<div class="col-sm-6">
-						<h4 class="card-title"><b>{{poiCtrl.poi.nombre}}</b> </h4>
-					</div>
-				</div>
-			</div>
-			<div >
-				<br>
-			</div>
-			
+         <h4 class="card-header"><b><img src="images/{{poiCtrl.poi.tipo}}.png" class="animated bounce" height="60px;" width="60px;">{{poiCtrl.poi.nombre}}</b></h4>
+		  				
 			<div class="container">
 				 <div class="row">
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<p class="card-text"><u>Direccion:</u></p>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-7">
 						<p ng-bind=poiCtrl.getDireccion()></p>
 					</div>
 				</div>
 			</div>
-			
-			<div >
-				<br>
-			</div>
-			
 			<div ng-include="getContentUrl"></div>
-
-
-			<div >
-				<br>
-			</div>
-   
+		   
 		   <div class="container">
 				 <div class="row">
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<p class="card-text"><u>Distancia(Km):</u> </p>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-7">
 						<p ng-bind=poiCtrl.getDistancia()></p>
 					</div>
 				</div>
 			</div>
 			
-			<div >
-				<br>
-			</div>
-			
 			<div class="container">
 				 <div class="row">
 					<div class="col-sm-3">
-						<p class="card-text"><u>Calific&aacute;cion general</u></p>
+						<p class="card-text"><u>Calific&aacute;cion general:</u></p>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-1">
 						<p ng-bind=poiCtrl.getPoint()></p>
 					</div>
-					<div class="col-sm-3">
-						<p class="card-text">Favorito</p>
+					<div class="col-sm-1">
+						<p class="card-text">Favorito</p>						 
 					</div>
-					<div class="col-sm-3">
-						<fieldset class="form-group">
+					<div class="col-sm-1">	
+					<fieldset class="form-group">
                     	<input type="checkbox" ng-model="poiCtrl.poi.favorito" ng-change="poiCtrl.cambiarFavorito">
                     	<label for="favorito"></label>
-                		</fieldset>
+                		</fieldset>					
+					</div>
+					<div class="col-sm-6">						 
 					</div>
 				</div>
 			</div>
