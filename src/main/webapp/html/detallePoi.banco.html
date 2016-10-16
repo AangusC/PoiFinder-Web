@@ -13,13 +13,27 @@
 				</div>
 			</div>
 			
-			<div >
-				<br>
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Direccion:</u></p>
+					</div>
+					<div class="col-sm-3">
+						<p ng-bind=poiCtrl.getDireccion(poiCtrl.poi)></p>
+					</div>
+				</div>
 			</div>
 			
 			
-			<div >
-				<br>
+			<div class="container">
+				 <div class="row">
+					<div class="col-sm-3">
+						<p class="card-text"><u>Servicios:</u></p>
+					</div>
+					<div class="col-sm-3">
+						<p ng-bind=poiCtrl.getServicios(poiCtrl.poi)></p>
+					</div>
+				</div>
 			</div>
    
 		   <div class="container">

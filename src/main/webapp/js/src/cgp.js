@@ -4,8 +4,15 @@ var Cgp = Poi.extend(function (op) {
 		var temp =op.comuna[i];
 		this.area.push(temp);
 	}
+	this.servicios=[];
 	this.comuna=new Comuna(op.comuna.nombre,area);
-	this.servicios = op.servicio;
+	var serviciosJson=[]
+	for(var i = 0; i < op.servicios.length; i++){
+		var temp = op.servicios[i];				 
+		var temp_horarios = temp.horarios.horaAperturaMañana+":"+ temp.horarios.minutoAperturaMañana+" - "+ temp.horarios.horaCierreMañana +":"+ temp.horarios.minutoCierreMañana;
+		this.servicios.push(new Servicio({nombre:temp.nombre,horarios: temp_horarios,diasAtencion:temp.diasAtencion.toString()}));
+	}
+
 })
   .methods({
 	estaCercaDe: function (point) {
@@ -33,6 +40,8 @@ var Cgp = Poi.extend(function (op) {
 		return this.servicios.some(servicio => servicio.nombre == nombre)
 	},
 	getServicios : function() {
+
+		
 		return this.servicios;
 	}
 

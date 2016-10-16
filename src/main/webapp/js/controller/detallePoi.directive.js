@@ -47,7 +47,16 @@ poiApp.controller('DetallePoiController', function ($rootScope, $scope, $state, 
             };
        }
    }
+    this.getParadas = function (poiSelected){
+        return  poiSelected.cantParadas()
+    }
     this.getDistancia = function(poiSelected){
         return poiSelected.distancia(new Point(18.787878, 34.567834))
     }
+    this.getServicios = function(poiSelected){
+        return poiSelected.getServicios()
+      }
+    this.getDireccion = function(poiSelected){
+        return poiSelected.direccion
+      }
 });

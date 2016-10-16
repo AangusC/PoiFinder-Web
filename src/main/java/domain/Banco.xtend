@@ -14,7 +14,7 @@ class Banco extends Poi {
 	double distanciaMinCercania = 0.5
 	String gerente
 	String direccion
-	List<String> servicio = new ArrayList<String>
+	List<String> servicios = new ArrayList<String>
 
 	new() {
 		horarios = new Horario(10, 00, 15, 00)
@@ -25,7 +25,7 @@ class Banco extends Poi {
 		coordenada = _coordenada
 		barrio = sucursal
 		gerente = _gerente
-		servicio = _servicio
+		servicios = _servicio
 		direccion = dir
 		horarios = new Horario(10, 00, 15, 00)
 	}
@@ -39,7 +39,7 @@ class Banco extends Poi {
 	}
 
 	def agregarServicio(String unServicio) {
-		servicio.add(unServicio)
+		servicios.add(unServicio)
 	}
 
 	def adddia(String dia) {

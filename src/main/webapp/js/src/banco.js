@@ -6,6 +6,8 @@ var Banco = Poi.extend(function(op){
 .methods({
 	agregarServicio : function (Servicio) {
 		this.servicios.push(Servicio);
+	},
+	getServicios : function() {
+		return this.servicios;
 	}
-		
 });

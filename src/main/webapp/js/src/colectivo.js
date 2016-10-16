@@ -9,7 +9,6 @@ var Colectivo = Poi.extend(function (op) {
 		paradaJson.push(new Point(tempX,tempY));
 	}
 	this.paradas= paradaJson;
-	console.log(this.paradas)
 	self=this
 })
   .methods({
@@ -17,15 +16,11 @@ var Colectivo = Poi.extend(function (op) {
 		return _.some(self.paradas, function(parada){parada.distance(point) <= 0.1});
 	},
 	distancia: function(point){
-		/*var tempa=self.paradas[0].distance(point);
-		 for(var i=1;i<this.paradas.size;i++){
-		 	if(this.paradas[i].distance(point)< tempa){
-		 		tempa=this.paradas[i].distance(point);
-		 	}
-		 }
-		return tempa;*/
 		var temp= []
-		_.each(self.paradas,function(parada){temp.push(parada.distance(point))})
+		_.each(this.paradas,function(parada){temp.push(parada.distance(point))})
 		return parseFloat(Math.round(_.min(temp) * 100) / 100).toFixed(2)
+	},
+	cantParadas : function(){
+		return this.paradas.length
 	}
   });
