@@ -15,5 +15,8 @@ function DispositivoGps() {
 		new Point(-34.569315, -58.509994),
 		new Point(-34.579960, -58.541980)
 		]
-	this.coordenadaGps=coord[Math.floor(Math.random() * coord.length)]
+	//this.coordenadaGps=coord[Math.floor(Math.random() * coord.length)]
+	this.coordenadaGps = new Point(20.548967, 15.9898980);
 }
+
+var dispositivoGps = new DispositivoGps();

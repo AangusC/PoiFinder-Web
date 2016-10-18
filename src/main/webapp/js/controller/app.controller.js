@@ -51,7 +51,7 @@ poiApp.controller('busquedaCtrl', function ($state, RepoPois) {
         //$state.go("vistaPoi", {id: poi.id});  
     };
     this.cercania = function(poiSelected){
-        return (poiSelected.estaCercaDe(new Point(18.787878, 34.567834)) ? "Si" : "No")
+        return (poiSelected.estaCercaDe(dispositivoGps.coordenadaGps) ? "Si" : "No")
     }
 
 });

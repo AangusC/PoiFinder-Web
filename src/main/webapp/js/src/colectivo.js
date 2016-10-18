@@ -13,7 +13,8 @@ var Colectivo = Poi.extend(function (op) {
 })
   .methods({
 	estaCercaDe: function (point) {
-		return _.some(self.paradas, function(parada){parada.distance(point) <= 0.1});
+		return  this.distancia(point) <= 0.1;
+		
 	},
 	distancia: function(point){
 		var temp= []

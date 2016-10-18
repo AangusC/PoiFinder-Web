@@ -46,17 +46,17 @@ poiApp.controller('DetallePoiController', function ($rootScope, $scope, $state, 
                 self.poi.favorito = valor;
             };
             self.getParadas = function (){
-                  if(poi.tipo=="colectivo"){
-                      return  poi.cantParadas()                  
-                  }
+                  
+                      return poi.cantParadas && poi.cantParadas()                  
+                  
             }
             self.getDistancia = function(){
-                return poi.distancia(new Point(18.787878, 34.567834))
+                return poi.distancia(dispositivoGps.coordenadaGps);
             }
             self.getServicios = function(){
-              if(poi.tipo == "cgp" || poi.tipo =="banco"){               
-                  return poi.getServicios()
-                  }
+                          
+                  return   poi.getServicios && poi.getServicios()
+                  
               }
             self.getDireccion = function(){
                 return poi.direccion

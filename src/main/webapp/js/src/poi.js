@@ -56,7 +56,8 @@ var Poi = klass(function (myJson) {
 			}
 			pun = pun / len;
 		}
-        return pun;
+
+        return pun.toFixed(2);
 	},
 	getOpinion: function(user){
 		var tmp=this.opiniones.find(
